@@ -1,0 +1,21 @@
+<%-- 
+    Document   : Colecciones
+    Created on : 9 jun. 2023, 14:10:32
+    Author     : conej
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+ </head>
+<body>
+    <h1>Menu Colecciones</h1>
+    <button onclick="window.location.href='ColeccionPermanente.jsp'">Mostrar colección permanente</button><br>
+    <button onclick="window.location.href='ColeccionPrestados.jsp'">Mostrar colección prestados</button><br>
+    <button onclick="window.location.href='ColeccionOtros.jsp'">Mostrar colección otros</button><br>
+    <button onclick="window.location.href='MenuInicio.jsp'">Regresar</button>
+</body>
+</html>

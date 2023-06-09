@@ -15,8 +15,8 @@
     <h1>Menu de inicio</h1>
     <p>Nombre de usuario conectado: </p>
     <button onclick="window.location.href='objetoArte.jsp'">Objeto de arte</button><br>
-    <button onclick="window.location.href='artistas.jsp'">Artistas</button><br>
-    <button onclick="window.location.href='colecciones.jsp'">Colecciones</button><br>
-    <button onclick="window.location.href='exposiciones.jsp'">Exposiciones</button><br>
+    <button onclick="window.location.href='Artistas.jsp'">Artistas</button><br>
+    <button onclick="window.location.href='Colecciones.jsp'">Colecciones</button><br>
+    <button onclick="window.location.href='Exposiciones.jsp'">Exposiciones</button><br>
 </body>
 </html>
