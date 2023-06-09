@@ -4,11 +4,13 @@
  */
 package Modelos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author conej
  */
-public class ExposicionObjeto {
+public class ExposicionObjeto implements Serializable {
 int idExposicion;
 	int idObraDeArte;
     public ExposicionObjeto() {

@@ -11,28 +11,28 @@ import java.sql.Date;
  *
  * @author conej
  */
-public class Exposiciones implements Serializable {
-    int idExposicion;
-    String nombre;
-    Date fecha_inicio;
-    Date fecha_fin;
-    int estatus;
-    public Exposiciones() {}
-
-    public int getIdExposicion() {
-        return idExposicion;
+public class prestados implements Serializable {
+ int idObraDeArte;
+    String prestamista;
+   Date fecha_inicio;
+   Date fecha_fin;
+    public prestados() {
     }
 
-    public void setIdExposicion(int idExposicion) {
-        this.idExposicion = idExposicion;
+    public int getIdObraDeArte() {
+        return idObraDeArte;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setIdObraDeArte(int idObraDeArte) {
+        this.idObraDeArte = idObraDeArte;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getPrestamista() {
+        return prestamista;
+    }
+
+    public void setPrestamista(String prestamista) {
+        this.prestamista = prestamista;
     }
 
     public Date getFecha_inicio() {
@@ -49,14 +49,6 @@ public class Exposiciones implements Serializable {
 
     public void setFecha_fin(Date fecha_fin) {
         this.fecha_fin = fecha_fin;
-    }
-
-    public int getEstatus() {
-        return estatus;
-    }
-
-    public void setEstatus(int estatus) {
-        this.estatus = estatus;
     }
     
 }

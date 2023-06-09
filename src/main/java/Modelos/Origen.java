@@ -4,11 +4,13 @@
  */
 package Modelos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author conej
  */
-public class Origen {
+public class Origen implements Serializable {
 
     int idOrigen;
     String descripcion;

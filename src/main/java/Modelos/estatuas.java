@@ -4,11 +4,13 @@
  */
 package Modelos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author conej
  */
-public class estatuas {
+public class estatuas implements Serializable {
 int idObraDeArte;
     int altura;
     int peso;

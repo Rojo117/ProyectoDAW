@@ -4,11 +4,13 @@
  */
 package Modelos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author conej
  */
-public class pintura {
+public class pintura implements Serializable {
     int idObraDeArte;
     String tipo_pintura;
     String material;

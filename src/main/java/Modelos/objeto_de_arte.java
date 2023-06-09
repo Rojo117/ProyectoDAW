@@ -4,13 +4,14 @@
  */
 package Modelos;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
  *
  * @author conej
  */
-public class objeto_de_arte {
+public class objeto_de_arte implements Serializable {
     int idObraDeArte;
     String nombreObra;
     String artista;
