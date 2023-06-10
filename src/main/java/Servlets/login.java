@@ -20,15 +20,20 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "login", urlPatterns = {"/login"})
 public class login extends HttpServlet {
-private UsuarioDAO data = new UsuarioDAO();
+
+    private UsuarioDAO data = new UsuarioDAO();
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-      String usuario = req.getParameter("usuario");
-      String pass = req.getParameter("pass");
-      Usuarios user = data.getUser(usuario, pass);
+        String usuario = req.getParameter("usuario");
+        String pass = req.getParameter("pass");
+        Usuarios user = data.getUser(usuario, pass);
         if (user != null) {
             req.getSession().setAttribute("IsConnected", user);
+        } else {
+            req.getSession().setAttribute("IsConnected", null);
         }
+        resp.sendRedirect(req.getContextPath() + "/Vistas/MenuInicio.jsp");
     }
     
     @Override

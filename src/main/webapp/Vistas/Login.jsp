@@ -4,8 +4,12 @@
     Author     : conej
 --%>
 
+<%@page import="Datos.verificacion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%new verificacion().IsConnected(request,response,"login");
+%>
+<html
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,7 +22,7 @@
         <a href="<%= request.getContextPath()%>/index.jsp"><button>regresar</button>
         </a>
         
-        <form method="post" action="/login">
+        <form method="post" action="<%= request.getContextPath()%>/login">
             <label>
                 usuario:
             </label>
