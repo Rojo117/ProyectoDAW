@@ -35,6 +35,5 @@
         <button onclick="window.location.href='MenuInicio.jsp'">Regresar a Inicio</button>
 
     </body>
-    <button onclick="window.location.href='Colecciones.jsp'">Regresar a Colecciones</button>
 </html>
  

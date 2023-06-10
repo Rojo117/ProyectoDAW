@@ -8,6 +8,6 @@ package Datos;
  *
  * @author conej
  */
-public class ObjetoDeArteDAO {
+class objetoDeArte {
     
 }

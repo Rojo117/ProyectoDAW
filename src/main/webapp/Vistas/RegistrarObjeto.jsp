@@ -14,4 +14,5 @@
     <body>
         <h1>Registrar objeto</h1>
     </body>
+    <button onclick="window.location.href='Exposiciones.jsp'">Regresar</button>
 </html>

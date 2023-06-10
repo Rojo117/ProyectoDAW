@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Menu Objeto de arte</h1>
-        <a href="registrarObjeto.jsp">registrar</a>
+        <button onclick="window.location.href='RegistrarObjeto.jsp'">Registrar</button>
         <table>
             <tr>
                 <th>idObraDeArte</th>
