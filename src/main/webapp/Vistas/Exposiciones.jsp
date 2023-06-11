@@ -37,7 +37,7 @@
             </tr>
 
         </table>
-        <button onclick="window.location.href='MenuInicio.jsp'">Regresar a Inicio</button>
+        <button onclick="window.location.href='MenuInicio.jsp'">Regresar</button>
 
     </body>
 </html>

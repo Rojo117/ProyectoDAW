@@ -4,11 +4,14 @@
     Author     : conej
 --%>
 
+<%@page import="Modelos.prestados"%>
+<%@page import="java.util.List"%>
 <%@page import="Datos.verificacion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
     new verificacion().IsConnected(request, response,"");
+    List<prestados> lista = (List<prestados>) request.getSession().getAttribute("objeto");
 %>
 <html
 <html>
@@ -26,7 +29,22 @@
                 <th>fecha_fin</th>
            
             </tr>
-
+<%
+                if (lista != null) {
+                    for (prestados objeto : lista) {
+            %>
+            <tr>
+                <th><%= objeto.getIdObraDeArte()%> </th>
+                <th><%= objeto.getPrestamista()%></th>
+                <th><%= objeto.getFecha_inicio()%> </th>
+                <th><%= objeto.getFecha_fin()%></th>
+                <th>Eliminar </th>
+                <th>Modificar </th>
+            </tr>
+            <%
+                    }
+                }
+            %>
         </table>
     </body>
         <button onclick="window.location.href='Colecciones.jsp'">Regresar</button>
