@@ -20,7 +20,7 @@
     <h1>Menu Colecciones</h1>
     <button onclick="window.location.href='ColeccionPermanente.jsp'">Mostrar colección permanente</button><br>
     <button onclick="window.location.href='ColeccionPrestados.jsp'">Mostrar colección prestados</button><br>
-    <button onclick="window.location.href='ColeccionOtros.jsp'">Mostrar colección otros</button><br>
+    <button onclick="window.location.href='<%= request.getContextPath()%>/listarColeccionOtros'">Mostrar colección otros</button><br>
     <button onclick="window.location.href='MenuInicio.jsp'">Regresar</button>
 </body>
 </html>
