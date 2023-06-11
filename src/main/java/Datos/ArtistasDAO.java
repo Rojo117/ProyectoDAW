@@ -5,9 +5,12 @@
 package Datos;
 
 import Modelos.artistas;
+import Modelos.objeto_de_arte;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,8 +23,37 @@ public class ArtistasDAO {
     private PreparedStatement ps= null;
     private artistas artistas = null;
     private List<artistas>artistaslist;
+    
 
     public ArtistasDAO() {
         con = Conexion.getConnection();
 } 
-}
+
+        public List<artistas> listarTodo() {
+        try {
+            artistaslist = new ArrayList<>();
+            ps = con.prepareStatement("SELECT * FROM artistas");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                artistas = new artistas();
+                artistas.setNombre(rs.getString("nombre"));
+                artistas.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
+                artistas.setFecha_fallecimiento(rs.getDate("fecha_fallecimiento"));
+                artistas.setPais_origen(rs.getString("pais_origen"));
+                artistas.setEpoca(rs.getInt("epoca"));
+                artistas.setEstilo(rs.getString("estilo"));
+                artistas.setDescripcion(rs.getString("descripcion"));
+                artistaslist.add(artistas);
+            }
+            return artistaslist;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(ps);
+        }
+    }
+    }
+

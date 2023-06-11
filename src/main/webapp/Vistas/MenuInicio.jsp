@@ -19,7 +19,7 @@
     <h1>Menu de inicio</h1>
     <p>Nombre de usuario conectado: </p>
     <button onclick="window.location.href='<%= request.getContextPath()%>/listarObjeto'">Objeto de arte</button><br><!-- CUANDO LE DE CLIC AL BOTON OBTIENE LA RUTA ABSOLUTA DEL PROJECTO Y ENVIA UNA PETICION AL SERVLET listarObjeto -->
-    <button onclick="window.location.href='Artistas.jsp'">Artistas</button><br>
+    <button onclick="window.location.href='<%= request.getContextPath()%>/listarArtistas'">Artistas</button><br>
     <button onclick="window.location.href='Colecciones.jsp'">Colecciones</button><br>
     <button onclick="window.location.href='Exposiciones.jsp'">Exposiciones</button><br>
 </body>

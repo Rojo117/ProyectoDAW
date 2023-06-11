@@ -4,11 +4,14 @@
     Author     : conej
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="Modelos.artistas"%>
 <%@page import="Datos.verificacion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
     new verificacion().IsConnected(request, response,"");
+    List<artistas> lista = (List<artistas>) request.getSession().getAttribute("objeto");
 %>
 <html
 <html>
@@ -32,6 +35,25 @@
             <th>Eliminar</th>
             <th>Modificar</th>
         </tr>
+        <%
+                if (lista != null) {
+                    for (artistas objeto : lista) {
+            %>
+            <tr>
+                <th><%= objeto.getNombre()%> </th>
+                <th><%= objeto.getFecha_nacimiento()%></th>
+                <th><%= objeto.getFecha_fallecimiento()%> </th>
+                <th><%= objeto.getPais_origen()%></th>
+                <th><%= objeto.getEpoca()%></th>
+                <th><%= objeto.getEstilo()%></th>
+                <th><%= objeto.getDescripcion()%></th>
+                <th>Eliminar </th>
+                <th>Modificar </th>
+            </tr>
+            <%
+                    }
+                }
+            %>
      
     </table>
     <button onclick="window.location.href='MenuInicio.jsp'">Regresar</button>
