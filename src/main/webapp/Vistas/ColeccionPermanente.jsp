@@ -4,11 +4,14 @@
     Author     : conej
 --%>
 
+<%@page import="Modelos.coleccion_permanente"%>
+<%@page import="java.util.List"%>
 <%@page import="Datos.verificacion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
     new verificacion().IsConnected(request, response,"");
+    List<coleccion_permanente> lista = (List<coleccion_permanente>) request.getSession().getAttribute("objeto");
 %>
 <html
 <html>
@@ -26,6 +29,22 @@
                 <th>costo</th>
            
             </tr>
+            <%
+                if (lista != null) {
+                    for (coleccion_permanente objeto : lista) {
+            %>
+            <tr>
+                <th><%= objeto.getIdObraDeArte()%></th>
+                <th><%= objeto.getFecha_adquisicion()%></th>
+                <th><%= objeto.getEstado()%></th>
+                <th><%= objeto.getCosto()%></th>
+                <th>Eliminar </th>
+                <th>Modificar </th>
+            </tr>
+            <%
+                    }
+                }
+            %>
 
         </table>
     </body>

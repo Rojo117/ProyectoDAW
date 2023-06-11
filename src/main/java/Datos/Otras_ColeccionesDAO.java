@@ -4,7 +4,6 @@
  */
 package Datos;
 
-import Modelos.artistas;
 import Modelos.otras_colecciones;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
