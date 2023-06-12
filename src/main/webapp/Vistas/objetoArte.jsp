@@ -53,7 +53,7 @@
                 <th><%= objeto.getIdOrigen()%></th>
                 <th><%= objeto.getIdTipo()%> </th>
                 <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getIdObraDeArte()%>&Seccion=ObraDeArte'">Eliminar</button> </th>
-                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Modificar?id=<%=objeto.getIdObraDeArte()%>'">Modificar</button> </th>
+                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Informacion?id=<%=objeto.getIdObraDeArte()%>&Seccion=ObraDeArte'">Modificar</button> </th>
             </tr>
             <%
                     }

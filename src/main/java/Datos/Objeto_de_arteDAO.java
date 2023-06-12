@@ -71,4 +71,36 @@ public class Objeto_de_arteDAO {
             Conexion.close(ps);
         }
     }
+
+    public objeto_de_arte leer(int id) {
+         
+        try {
+            objetoDeArte = new objeto_de_arte();
+            ps = con.prepareStatement("SELECT * FROM objeto_de_arte WHERE idobradearte=?");
+            ps.setInt(1,id);
+            rs = ps.executeQuery();
+            if(rs.next()) {
+                objetoDeArte.setIdObraDeArte(rs.getInt("idobradearte"));
+                objetoDeArte.setNombreObra(rs.getString("nombreobra"));
+                objetoDeArte.setArtista(rs.getString("artista"));
+                objetoDeArte.setId_coleccion(rs.getInt("id_coleccion"));
+                objetoDeArte.setFecha_creacion(rs.getDate("fecha_creacion"));
+                objetoDeArte.setTitulo(rs.getString("titulo"));
+                objetoDeArte.setDescripcion(rs.getString("descripcion"));
+                objetoDeArte.setIdEpoca(rs.getInt("idepoca"));
+                objetoDeArte.setIdOrigen(rs.getInt("idorigen"));
+                objetoDeArte.setIdTipo(rs.getInt("idtipo"));
+               
+            }
+            return objetoDeArte;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(ps);
+        }
+    
+    }
 }
