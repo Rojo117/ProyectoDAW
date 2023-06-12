@@ -47,8 +47,8 @@
                 <th><%= objeto.getEpoca()%></th>
                 <th><%= objeto.getEstilo()%></th>
                 <th><%= objeto.getDescripcion()%></th>
-                <th>Eliminar </th>
-                <th>Modificar </th>
+                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getNombre()%>&Seccion=Artistas'">Eliminar</button> </th>
+                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Modificar?id=<%=objeto.getNombre()%>'">Modificar</button> </th>
             </tr>
             <%
                     }

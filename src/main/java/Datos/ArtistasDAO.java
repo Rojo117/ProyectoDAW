@@ -5,7 +5,6 @@
 package Datos;
 
 import Modelos.artistas;
-import Modelos.objeto_de_arte;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,7 +31,7 @@ public class ArtistasDAO {
         public List<artistas> listarTodo() {
         try {
             artistaslist = new ArrayList<>();
-            ps = con.prepareStatement("SELECT * FROM artistas");
+            ps = con.prepareStatement("SELECT * FROM artistas WHERE estatus = 1");
             rs = ps.executeQuery();
             while (rs.next()) {
                 artistas = new artistas();
@@ -52,6 +51,19 @@ public class ArtistasDAO {
             return null;
         } finally {
             Conexion.close(rs);
+            Conexion.close(ps);
+        }
+    }
+
+    public boolean Eliminar(String id2){ try {
+            ps = con.prepareStatement("UPDATE artistas SET estatus=? WHERE nombre=?");
+            ps.setInt(1, 0);
+            ps.setString(2, id2);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
             Conexion.close(ps);
         }
     }

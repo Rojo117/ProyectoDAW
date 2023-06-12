@@ -34,7 +34,6 @@
                 <th>idEpoca</th>
                 <th>idOrigen</th>
                 <th>idTipo</th>
-                <th>estatus</th>
                 <th>Eliminar</th>
                 <th>Modificar</th>
             </tr>
@@ -42,7 +41,7 @@
                 if (lista != null) {
                     for (objeto_de_arte objeto : lista) {
             %>
-            <tr>
+            <tr>         
                 <th><%= objeto.getIdObraDeArte()%> </th>
                 <th><%= objeto.getNombreObra()%></th>
                 <th><%= objeto.getArtista()%> </th>
@@ -53,8 +52,8 @@
                 <th><%= objeto.getIdEpoca()%></th>
                 <th><%= objeto.getIdOrigen()%></th>
                 <th><%= objeto.getIdTipo()%> </th>
-                <th>Eliminar </th>
-                <th>Modificar </th>
+                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getIdObraDeArte()%>&Seccion=ObraDeArte'">Eliminar</button> </th>
+                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Modificar?id=<%=objeto.getIdObraDeArte()%>'">Modificar</button> </th>
             </tr>
             <%
                     }
