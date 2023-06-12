@@ -20,7 +20,7 @@
     </head>
     <body>
         <h1>Esculturas</h1>
-         <button onclick="window.location.href='registrarEscultura.jsp'">Registrar Escultura</button>
+         <button onclick="window.location.href='RegistrarEscultura.jsp'">Registrar Escultura</button>
     <table>
    
         <tr>

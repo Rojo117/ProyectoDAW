@@ -20,7 +20,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-               <h1>OtrasColecciones</h1>
+               <h1>Otras Colecciones</h1>
+               <button onclick="window.location.href='RegistrarOtrasColecciones.jsp'">Registrar Otras Colecciones</button>
         <table>
             <tr>
                 <th>idObraDeArte</th>

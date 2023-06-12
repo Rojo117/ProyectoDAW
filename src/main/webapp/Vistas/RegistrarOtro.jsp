@@ -1,6 +1,6 @@
 <%-- 
-    Document   : RegistrarObjeto
-    Created on : 9 jun. 2023, 17:59:08
+    Document   : RegistrarOtro
+    Created on : 12 jun. 2023, 16:20:26
     Author     : conej
 --%>
 
@@ -10,14 +10,13 @@
 <%
     new verificacion().IsConnected(request, response,"");
 %>
-<html
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Registrar objeto</h1>
+        <h1>Registrar Otro</h1>
     </body>
-    <button onclick="window.location.href='objetoArte.jsp'">Regresar</button>
+    <button onclick="window.location.href='Otros.jsp'">Regresar</button>
 </html>

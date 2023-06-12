@@ -21,6 +21,8 @@
     </head>
     <body>
             <h1>Prestados</h1>
+            <button onclick="window.location.href='RegistrarColeccionPrestados.jsp'">Registrar Coleccion Prestados</button>
+
         <table>
             <tr>
                 <th>idObraDeArte</th>

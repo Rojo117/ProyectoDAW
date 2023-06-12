@@ -20,7 +20,7 @@
     </head>
     <body>
                <h1>Otros Objetos de Arte</h1>
-    <button onclick="window.location.href='registrarOtro.jsp'">Registrar Otro Objeto</button>
+    <button onclick="window.location.href='RegistrarOtro.jsp'">Registrar Otro Objeto</button>
     <table>
    
         <tr>

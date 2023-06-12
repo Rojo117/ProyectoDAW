@@ -21,7 +21,7 @@
     </head>
     <body>
         <h1>Exposiciones</h1>
-        <button onclick="window.location.href='RegistrarObjeto.jsp'">Registrar</button>
+        <button onclick="window.location.href='RegistrarExposiciones.jsp'">Registrar Exposion</button>
         <table>
             <tr>
                 <th>idExposicion</th>

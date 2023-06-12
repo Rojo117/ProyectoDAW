@@ -21,6 +21,7 @@
     </head>
     <body>
          <h1>Coleccion Permanente</h1>
+         <button onclick="window.location.href='RegistrarColeccionPermanente.jsp'">Registrar Coleccion Permanente</button>
         <table>
             <tr>
                 <th>idObraDeArte</th>

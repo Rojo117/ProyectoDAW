@@ -21,7 +21,7 @@
    </head>
 <body>
     <h1>Menu Artistas</h1>
-    <button onclick="window.location.href='registrarArtistas.jsp'">Registrar Pintura</button>
+    <button onclick="window.location.href='RegistrarArtistas.jsp'">Registrar Artistas</button>
     <table>
    
         <tr>
