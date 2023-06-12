@@ -5,6 +5,7 @@
 package Servlets;
 
 import Datos.ArtistasDAO;
+import Datos.ExposicionesDAO;
 import Datos.Objeto_de_arteDAO;
 import Modelos.objeto_de_arte;
 import java.io.IOException;
@@ -41,6 +42,13 @@ public class Eliminar extends HttpServlet {
                 eliminado = acceso2.Eliminar(id2);
                 comprobar(eliminado);
                 response.sendRedirect(request.getContextPath() + "/listarArtistas");
+                break;
+            case "Exposiciones":
+                int id3 = Integer.parseInt(request.getParameter("id"));
+                ExposicionesDAO acceso3 = new ExposicionesDAO();
+                eliminado = acceso3.Eliminar(id3);
+                comprobar(eliminado);
+                response.sendRedirect(request.getContextPath() + "/listarExposiciones");
                 break;
             default:
                 throw new AssertionError();

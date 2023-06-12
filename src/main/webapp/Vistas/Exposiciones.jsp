@@ -48,8 +48,8 @@
                 <th><%= objeto.getFecha_inicio()%> </th>
                 <th><%= objeto.getFecha_fin()%></th>
                 <th><%= objeto.getEstatus()%></th>
-                <th>Eliminar </th>
-                <th>Modificar </th>
+                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getIdExposicion()%>&Seccion=Exposiciones'">Eliminar</button> </th>
+                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Modificar?id=<%=objeto.getIdExposicion()%>'">Modificar</button> </th>
             </tr>
             <%
                     }
