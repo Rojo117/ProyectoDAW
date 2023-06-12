@@ -5,9 +5,12 @@
 package Datos;
 
 import Modelos.Exposiciones;
+import Modelos.prestados;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,4 +27,29 @@ public class ExposicionesDAO {
     public ExposicionesDAO() {
         con = Conexion.getConnection();
 }
+
+    public List<Exposiciones> listarTodo() {
+               try {
+            Exposicioneslist = new ArrayList<>();
+            ps = con.prepareStatement("SELECT * FROM exposiciones WHERE estatus=1");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Exposiciones = new Exposiciones();
+                Exposiciones.setIdExposicion(rs.getInt("idExposicion"));
+                Exposiciones.setNombre(rs.getString("Nombre"));
+                Exposiciones.setFecha_inicio(rs.getDate("fecha_inicio"));
+                Exposiciones.setFecha_fin(rs.getDate("fecha_fin"));
+                Exposiciones.setEstatus(rs.getInt("estatus"));
+                Exposicioneslist.add(Exposiciones);
+            }
+            return Exposicioneslist;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(ps);
+        }
+    }
 }

@@ -18,8 +18,7 @@
  </head>
 <body>
     <h1>Menu Colecciones</h1>
-    
-    <button onclick="window.location.href='<%= request.getContextPath()%>/listarColeccionTemporal">Mostrar colección prestados</button><br>
+     
     <button onclick="window.location.href='<%= request.getContextPath()%>/listarColeccionPermanente'">Mostrar colección permanente</button><br>
     <button onclick="window.location.href='<%= request.getContextPath()%>/listarColeccionOtros'">Mostrar colección otros</button><br>
     <button onclick="window.location.href='<%= request.getContextPath()%>/listarColeccionTemporal'">Mostrar colección prestados</button><br>

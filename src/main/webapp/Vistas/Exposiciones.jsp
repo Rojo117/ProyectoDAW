@@ -4,11 +4,14 @@
     Author     : conej
 --%>
 
+<%@page import="Modelos.Exposiciones"%>
+<%@page import="java.util.List"%>
 <%@page import="Datos.verificacion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
     new verificacion().IsConnected(request, response,"");
+    List<Exposiciones> lista = (List<Exposiciones>) request.getSession().getAttribute("objeto");
 %>
 <html
 <html>
@@ -35,7 +38,23 @@
                 <th>Eliminar</th>
                 <th>Modificar</th>
             </tr>
-
+<%
+                if (lista != null) {
+                    for (Exposiciones objeto : lista) {
+            %>
+            <tr>
+                <th><%= objeto.getIdExposicion()%> </th>
+                <th><%= objeto.getNombre()%></th>
+                <th><%= objeto.getFecha_inicio()%> </th>
+                <th><%= objeto.getFecha_fin()%></th>
+                <th><%= objeto.getEstatus()%></th>
+                <th>Eliminar </th>
+                <th>Modificar </th>
+            </tr>
+            <%
+                    }
+                }
+            %>
         </table>
         <button onclick="window.location.href='MenuInicio.jsp'">Regresar</button>
 
