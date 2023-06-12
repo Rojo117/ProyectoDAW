@@ -73,13 +73,13 @@ public class Objeto_de_arteDAO {
     }
 
     public objeto_de_arte leer(int id) {
-         
+
         try {
             objetoDeArte = new objeto_de_arte();
             ps = con.prepareStatement("SELECT * FROM objeto_de_arte WHERE idobradearte=?");
-            ps.setInt(1,id);
+            ps.setInt(1, id);
             rs = ps.executeQuery();
-            if(rs.next()) {
+            if (rs.next()) {
                 objetoDeArte.setIdObraDeArte(rs.getInt("idobradearte"));
                 objetoDeArte.setNombreObra(rs.getString("nombreobra"));
                 objetoDeArte.setArtista(rs.getString("artista"));
@@ -90,7 +90,7 @@ public class Objeto_de_arteDAO {
                 objetoDeArte.setIdEpoca(rs.getInt("idepoca"));
                 objetoDeArte.setIdOrigen(rs.getInt("idorigen"));
                 objetoDeArte.setIdTipo(rs.getInt("idtipo"));
-               
+
             }
             return objetoDeArte;
 
@@ -101,6 +101,28 @@ public class Objeto_de_arteDAO {
             Conexion.close(rs);
             Conexion.close(ps);
         }
-    
+
+    }
+
+    public boolean modificar(objeto_de_arte objeto) {
+        try {
+            ps = con.prepareStatement("UPDATE objeto_de_arte SET nombreobra=?, artista=?, id_coleccion=?, fecha_creacion=?, titulo=?,descripcion=?,idepoca=?,idorigen=?,idtipo=? WHERE idobradearte=?");
+            ps.setString(1, objeto.getNombreObra());
+            ps.setString(2, objeto.getArtista());
+            ps.setInt(3, objeto.getId_coleccion());
+            ps.setDate(4, objeto.getFecha_creacion());
+            ps.setString(5, objeto.getTitulo());
+            ps.setString(6, objeto.getDescripcion());
+            ps.setInt(7, objeto.getIdEpoca());
+            ps.setInt(8, objeto.getIdOrigen());
+            ps.setInt(9, objeto.getIdTipo());
+            ps.setInt(10, objeto.getIdObraDeArte());
+            return ps.executeUpdate()>0;
+        } catch (SQLException e) {
+             e.printStackTrace();
+            return false;
+        } finally {
+             Conexion.close(ps);
+        }
     }
 }

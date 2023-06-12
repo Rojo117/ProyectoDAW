@@ -17,7 +17,7 @@
         <label>ID Exposición:</label>
         <input type="text" id="idExposicion" name="idExposicion"><br>
         
-        <label for="nombre">Nombre:</label>
+        <label>Nombre:</label>
         <input type="text" id="nombre" name="nombre"><br>
         
         <label>Fecha de Inicio:</label>

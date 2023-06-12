@@ -4,8 +4,14 @@
     Author     : conej
 --%>
 
+<%@page import="Modelos.artistas"%>
+<%@page import="Datos.verificacion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    new verificacion().IsConnected(request, response,"");
+   artistas objeto = (artistas) request.getSession().getAttribute("objeto");
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,7 +19,7 @@
     </head>
     <body>
         <h1>MODIFICAR ARTISTAS</h1>
-        <form action="procesar_formulario.php" method="POST">
+        <form action="" method="POST">
         <label>Nombre:</label>
         <input type="text" id="nombre" name="nombre"><br>
         
