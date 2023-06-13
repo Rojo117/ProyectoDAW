@@ -17,7 +17,7 @@
     </head>
     <body>
         <h1>Registrar Estatua</h1>
-<form action="<%= request.getContextPath()%>/modificarEstatuas" method="POST">
+<form action="<%= request.getContextPath()%>/registrarEstatua" method="POST">
             <label>Id de la Obra:</label>
             <input value="" type="text"  name="idObraDeArte"><br>
 

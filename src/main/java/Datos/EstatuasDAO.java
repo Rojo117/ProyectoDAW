@@ -105,4 +105,39 @@ try {
         } finally {
             Conexion.close(ps);
         }    }
+
+    public boolean comprobar(int idObraDeArte) {
+        try {
+            ps = con.prepareStatement("SELECT * FROM estatuas WHERE idobradearte=?");
+            ps.setInt(1, idObraDeArte);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }    }
+
+    public boolean Registrar(estatuas objeto) {
+        try {
+            ps = con.prepareStatement("INSERT INTO estatuas (idobradearte,altura,peso,representacion,estatus) VALUES(?,?,?,?,?)");
+            ps.setInt(1, objeto.getIdObraDeArte());
+            ps.setInt(2, objeto.getAltura());
+            ps.setInt(3, objeto.getPeso());
+            ps.setString(4, objeto.getRepresentacion());
+            ps.setInt(5, 1);
+
+            return ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }    }
 }
