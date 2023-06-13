@@ -29,12 +29,6 @@
                 <th>fecha_inicio</th>
                 <th>fecha_fin</th>
                 <th>estatus</th>
-                <th>titulo</th>
-                <th>descripcion</th>
-                <th>idEpoca</th>
-                <th>idOrigen</th>
-                <th>idTipo</th>
-                <th>estatus</th>
                 <th>Eliminar</th>
                 <th>Modificar</th>
             </tr>
@@ -49,7 +43,8 @@
                 <th><%= objeto.getFecha_fin()%></th>
                 <th><%= objeto.getEstatus()%></th>
                 <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getIdExposicion()%>&Seccion=Exposiciones'">Eliminar</button> </th>
-                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Modificar?id=<%=objeto.getIdExposicion()%>'">Modificar</button> </th>
+                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Informacion?id=<%=objeto.getIdExposicion()%>&Seccion=Exposiciones'">Modificar</button> </th>
+
             </tr>
             <%
                     }

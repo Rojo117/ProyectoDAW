@@ -7,6 +7,7 @@ package Servlets;
 import Datos.ArtistasDAO;
 import Datos.ExposicionesDAO;
 import Datos.Objeto_de_arteDAO;
+import Modelos.Exposiciones;
 import Modelos.objeto_de_arte;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -47,11 +48,12 @@ public class Informacion extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/listarArtistas");
                 break;
             case "Exposiciones":
+                Exposiciones expo = new Exposiciones();
                 int id3 = Integer.parseInt(request.getParameter("id"));
                 ExposicionesDAO acceso3 = new ExposicionesDAO();
-                eliminado = acceso3.Eliminar(id3);
-                comprobar(eliminado);
-                response.sendRedirect(request.getContextPath() + "/listarExposiciones");
+                expo = acceso3.leer(id3);
+                request.getSession().setAttribute("leer2",expo);
+                response.sendRedirect(request.getContextPath() + "/Vistas/ModificarExposiciones.jsp");
                 break;
             default:
                 throw new AssertionError();
@@ -67,10 +69,10 @@ public class Informacion extends HttpServlet {
     }
         protected void comprobar(boolean eliminado) {
         if (eliminado) {
-            System.out.println("Eliminado correctamente");
+            System.out.println("Modificado correctamente");
 
         } else {
-            System.out.println("No se pudo eliminar");
+            System.out.println("No se pudo modificar");
         }
     }
 

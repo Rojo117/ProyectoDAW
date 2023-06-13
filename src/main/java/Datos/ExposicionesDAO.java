@@ -5,7 +5,6 @@
 package Datos;
 
 import Modelos.Exposiciones;
-import Modelos.prestados;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -63,6 +62,46 @@ public class ExposicionesDAO {
             return false;
         } finally {
             Conexion.close(ps);
+        }
+    }
+            public Exposiciones leer(int id) {
+
+        try {
+            Exposiciones = new Exposiciones();
+            ps = con.prepareStatement("SELECT * FROM exposiciones WHERE idexposicion=?");
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                Exposiciones.setIdExposicion(rs.getInt("idExposicion"));
+                Exposiciones.setNombre(rs.getString("nombre"));
+                Exposiciones.setFecha_inicio(rs.getDate("fecha_inicio"));
+                Exposiciones.setFecha_fin(rs.getDate("fecha_fin"));
+
+            }
+            return Exposiciones;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(ps);
+        }
+
+    }
+            public boolean modificar(Exposiciones objeto ) {
+        try {
+            ps = con.prepareStatement("UPDATE exposiciones SET nombre=?, fecha_inicio=?, fecha_fin=? WHERE idexposicion=?");
+            ps.setString(1, objeto.getNombre());
+            ps.setDate(2, objeto.getFecha_inicio());
+            ps.setDate(3, objeto.getFecha_fin());
+            ps.setInt(4, objeto.getIdExposicion());
+            return ps.executeUpdate()>0;
+        } catch (SQLException e) {
+             e.printStackTrace();
+            return false;
+        } finally {
+             Conexion.close(ps);
         }
     }
     }

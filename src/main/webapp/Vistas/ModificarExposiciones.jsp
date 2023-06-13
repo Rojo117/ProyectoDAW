@@ -3,9 +3,14 @@
     Created on : 11 jun. 2023, 21:43:49
     Author     : conej
 --%>
-
+<%@page import="Datos.verificacion"%>
+<%@page import="Modelos.Exposiciones"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    new verificacion().IsConnected(request, response, "");
+    Exposiciones objeto = (Exposiciones) request.getSession().getAttribute("leer2");
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,23 +18,21 @@
     </head>
     <body>
         <h1>MODIFICAR EXPOSCIONES</h1>
-        <form action="procesar_formulario.php" method="POST">
-        <label>ID Exposición:</label>
-        <input type="text" id="idExposicion" name="idExposicion"><br>
+        <form action="<%= request.getContextPath()%>/modificarExposiciones" method="POST">
+       
+        <input value="<%= objeto.getIdExposicion()%>" type="text"  name="idExposicion"hidden>
         
         <label>Nombre:</label>
-        <input type="text" id="nombre" name="nombre"><br>
+        <input value="<%= objeto.getNombre()%>" type="text" name="nombre"><br>
         
         <label>Fecha de Inicio:</label>
-        <input type="text" id="fecha_inicio" name="fecha_inicio"><br>
+        <input value="<%= objeto.getFecha_inicio()%>" type="text"  name="fecha_inicio"><br>
         
         <label>Fecha de Fin:</label>
-        <input type="text" id="fecha_fin" name="fecha_fin"><br>
-        
-        <label>Estatus:</label>
-        <input type="text" id="estatus" name="estatus"><br>
-        
-        <input type="submit" value="Enviar">
+        <input value="<%= objeto.getFecha_fin()%>" type="text"  name="fecha_fin"><br>
+             
+        <input type="submit" value="Modificar">
     </form>
+        <button onclick="window.location.href = '<%= request.getContextPath()%>/listarExposiciones'">Regresar al menu anterior</button><br>
     </body>
 </html>
