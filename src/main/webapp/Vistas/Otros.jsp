@@ -25,9 +25,8 @@
    
         <tr>
             <th>idObraDeArte</th>
-            <th>altura</th>
-            <th>peso</th>
-            <th>representacion</th>
+            <th>tipo</th>
+            <th>estilo</th>
             <th>Eliminar</th>
             <th>Modificar</th>
         </tr>
@@ -39,8 +38,8 @@
                 <th><%= objeto.getIdObraDeArte()%> </th>
                 <th><%= objeto.getTipo()%></th>
                 <th><%= objeto.getEstilo()%> </th>
-                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getIdObraDeArte()%>&Seccion=Artistas'">Eliminar</button> </th>
-                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Modificar?id=<%=objeto.getIdObraDeArte()%>'">Modificar</button> </th>
+               <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getIdObraDeArte()%>&Seccion=Otros'">Eliminar</button> </th>
+                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Informacion?id=<%=objeto.getIdObraDeArte()%>&Seccion=Otros'">Modificar</button> </th>
             </tr>
             <%
                     }

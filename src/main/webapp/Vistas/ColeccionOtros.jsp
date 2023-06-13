@@ -31,6 +31,8 @@
                 <th>direccion</th>  
                 <th>telefono</th>  
                 <th>nombre_contacto</th>  
+                <th>Eliminar</th>  
+                <th>Modificar</th>  
             </tr>
 <%
                 if (lista != null) {
@@ -44,8 +46,8 @@
                 <th><%= objeto.getDireccion()%></th>
                 <th><%= objeto.getTelefono()%></th>
                 <th><%= objeto.getNombre_contacto()%></th>
-                <th>Eliminar </th>
-                <th>Modificar </th>
+                <th> <button onclick="window.location.href = '<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getIdObraDeArte()%>&Seccion=ColeccionOtros'">Eliminar</button> </th>
+                <th> <button onclick="window.location.href = '<%= request.getContextPath()%>/Informacion?id=<%=objeto.getIdObraDeArte()%>&Seccion=ColeccionOtros'">Modificar</button> </th>
             </tr>
             <%
                     }

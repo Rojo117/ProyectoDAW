@@ -4,7 +4,9 @@
  */
 package Datos;
 
+import Modelos.Exposiciones;
 import Modelos.otros;
+import Modelos.prestados;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -39,6 +41,45 @@ public class OtrosDAO {
                 otroslist.add(otros);
             }
             return otroslist;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(ps);
+        }
+    }
+
+    public boolean modificar(otros objeto) {
+        try {
+            ps = con.prepareStatement("UPDATE otros SET tipo=?, estilo=? WHERE idObraDeArte=?");
+            ps.setString(1, objeto.getTipo());
+            ps.setString(2, objeto.getEstilo());
+            ps.setInt(3, objeto.getIdObraDeArte());
+
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }
+    }
+
+    public otros leer(int id9) {
+                        try {
+            otros = new otros();
+            ps = con.prepareStatement("SELECT * FROM otros WHERE idObraDeArte=?");
+            ps.setInt(1, id9);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+             otros.setIdObraDeArte(rs.getInt("idObraDeArte"));
+                otros.setTipo(rs.getString("tipo"));
+                otros.setEstilo(rs.getString("estilo"));
+
+            }
+            return otros;
 
         } catch (SQLException e) {
             e.printStackTrace();

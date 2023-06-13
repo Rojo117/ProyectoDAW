@@ -23,11 +23,11 @@
 
             <input value="<%= objeto.getIdObraDeArte()%>" type="text"  name="idObraDeArte" hidden>
 
-            <label>nombreObra:</label>
-            <input value="<%= objeto.getPrestamista()%>" type="text"  name="nombreObra"><br>
+            <label>Nombre del Prestamista:</label>
+            <input value="<%= objeto.getPrestamista()%>" type="text"  name="prestamista"><br>
 
              <label>fecha_inicio</label>
-            <input value="<%= objeto.getFecha_inicio()%>" type="text"  name="fecha_inicio">
+            <input value="<%= objeto.getFecha_inicio()%>" type="text"  name="fecha_inicio"><br>
 
             <label>fecha_fin</label>
             <input value="<%= objeto.getFecha_fin()%>" type="text"  name="fecha_fin"><br>

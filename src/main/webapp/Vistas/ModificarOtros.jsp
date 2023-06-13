@@ -27,7 +27,7 @@
             <input value="<%= objeto.getTipo()%>" type="text"  name="tipo"><br>
 
             <label>Estilo:</label>
-            <input value="<%= objeto.getEstilo()%>" type="text"  name="Estilo"><br>
+            <input value="<%= objeto.getEstilo()%>" type="text"  name="estilo"><br>
 
             <input type="submit" value="Modificar">
 

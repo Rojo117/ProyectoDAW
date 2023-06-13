@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <%
     new verificacion().IsConnected(request, response,"");
-   artistas objeto = (artistas) request.getSession().getAttribute("objeto");
+   artistas objeto = (artistas) request.getSession().getAttribute("leer2");
 %>
 <html>
     <head>
@@ -19,30 +19,30 @@
     </head>
     <body>
         <h1>MODIFICAR ARTISTAS</h1>
-        <form action="" method="POST">
-        <label>Nombre:</label>
-        <input type="text" id="nombre" name="nombre"><br>
+        <form action="<%= request.getContextPath()%>/modificarArtistas" method="POST">
+        
+        <input value="<%= objeto.getNombre()%>" type="text"  name="nombre" hidden>
         
         <label>Fecha de Nacimiento:</label>
-        <input type="text" id="fecha_nacimiento" name="fecha_nacimiento"><br>
+        <input value="<%= objeto.getFecha_nacimiento()%>" type="text"  name="fecha_nacimiento"><br>
         
         <label>Fecha de Fallecimiento:</label>
-        <input type="text" id="fecha_fallecimiento" name="fecha_fallecimiento"><br>
+        <input value="<%= objeto.getFecha_fallecimiento()%>" type="text"  name="fecha_fallecimiento"><br>
         
         <label>País de Origen:</label>
-        <input type="text" id="pais_origen" name="pais_origen"><br>
+        <input value="<%= objeto.getPais_origen()%>" type="text"  name="pais_origen"><br>
         
         <label>Época:</label>
-        <input type="text" id="epoca" name="epoca"><br>
+        <input value="<%= objeto.getEpoca()%>" type="text"  name="epoca"hidden>
         
         <label>Estilo:</label>
-        <input type="text" id="estilo" name="estilo"><br>
+        <input value="<%= objeto.getEstilo()%>" type="text"  name="estilo"><br>
         
         <label>Descripción:</label>
-        <input type="text" id="descripcion" name="descripcion"><br>
+        <input value="<%= objeto.getDescripcion()%>" type="text"  name="descripcion"><br>
         
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Modificar">
     </form>
+        <button onclick="window.location.href = '<%= request.getContextPath()%>/listarArtistas'">Regresar al menu anterior</button><br>
 </body>
-    </body>
 </html>

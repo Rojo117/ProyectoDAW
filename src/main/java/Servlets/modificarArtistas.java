@@ -4,9 +4,10 @@
  */
 package Servlets;
 
-import Datos.EstatuasDAO;
-import Modelos.estatuas;
+import Datos.ArtistasDAO;
+import Modelos.artistas;
 import java.io.IOException;
+import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author conej
  */
-@WebServlet(name = "modificarEstatuas", urlPatterns = {"/modificarEstatuas"})
-public class modificarEstatuas extends HttpServlet {
+@WebServlet(name = "modificarArtistas", urlPatterns = {"/modificarArtistas"})
+public class modificarArtistas extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -28,12 +29,15 @@ public class modificarEstatuas extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        estatuas objeto = new estatuas();
-        objeto.setIdObraDeArte(Integer.parseInt(request.getParameter("idObraDeArte")));
-        objeto.setAltura(Integer.parseInt(request.getParameter("altura")));
-        objeto.setPeso(Integer.parseInt(request.getParameter("peso")));
-        objeto.setRepresentacion(request.getParameter("representacion"));//string
-        EstatuasDAO access = new EstatuasDAO();
+        artistas objeto = new artistas();
+        objeto.setNombre(request.getParameter("nombre"));//string
+        objeto.setFecha_nacimiento(Date.valueOf(request.getParameter("fecha_nacimiento")));//date
+        objeto.setFecha_fallecimiento(Date.valueOf(request.getParameter("fecha_fallecimiento")));//date
+        objeto.setPais_origen(request.getParameter("pais_origen"));//string
+        objeto.setEpoca(Integer.parseInt(request.getParameter("epoca")));//int
+        objeto.setEstilo(request.getParameter("estilo"));//string
+        objeto.setDescripcion(request.getParameter("descripcion"));//string
+        ArtistasDAO access = new ArtistasDAO();
         boolean modificado = access.modificar(objeto);
                  if (modificado) {
             System.out.println("Modificado correctamente");
@@ -41,8 +45,8 @@ public class modificarEstatuas extends HttpServlet {
         } else {
             System.out.println("No se pudo modificar");
         }
-         response.sendRedirect(request.getContextPath()+"/Informacion?id="+objeto.getIdObraDeArte()+"&Seccion=Estatuas");
+         response.sendRedirect(request.getContextPath()+"/Informacion?id="+objeto.getNombre()+"&Seccion=Artistas");
     }
 
+    }
 
-}

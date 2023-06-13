@@ -4,6 +4,7 @@
  */
 package Datos;
 
+import Modelos.Exposiciones;
 import Modelos.artistas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -67,5 +68,50 @@ public class ArtistasDAO {
             Conexion.close(ps);
         }
     }
-    }
+
+    public boolean modificar(artistas objeto) {
+        try {
+            ps = con.prepareStatement("UPDATE artistas SET fecha_nacimiento=?, fecha_fallecimiento=?, pais_origen=?, epoca=?, estilo=?,descripcion=? WHERE nombre=?");
+            
+            ps.setDate(1, objeto.getFecha_nacimiento());
+            ps.setDate(2, objeto.getFecha_fallecimiento());        
+            ps.setString(3, objeto.getPais_origen());
+            ps.setInt(4, objeto.getEpoca());
+            ps.setString(5, objeto.getEstilo());
+            ps.setString(6, objeto.getDescripcion());
+            ps.setString(7, objeto.getNombre());
+            return ps.executeUpdate()>0;
+        } catch (SQLException e) {
+             e.printStackTrace();
+            return false;
+        } finally {
+             Conexion.close(ps);
+        }    }
+
+    public artistas leer(String id) {
+                        try {
+            artistas = new artistas();
+            ps = con.prepareStatement("SELECT * FROM artistas WHERE nombre=?");
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                 artistas.setNombre(rs.getString("nombre"));
+                artistas.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
+                artistas.setFecha_fallecimiento(rs.getDate("fecha_fallecimiento"));
+                artistas.setPais_origen(rs.getString("pais_origen"));
+                artistas.setEpoca(rs.getInt("epoca"));
+                artistas.setEstilo(rs.getString("estilo"));
+                artistas.setDescripcion(rs.getString("descripcion"));
+
+            }
+            return artistas;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(ps);
+        }
+    }}
 

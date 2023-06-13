@@ -29,6 +29,8 @@
                 <th>prestamista</th>
                 <th>fecha_inicio</th>
                 <th>fecha_fin</th>
+                <th>Eliminar</th>
+                <th>Modificar</th>
            
             </tr>
 <%
@@ -40,8 +42,8 @@
                 <th><%= objeto.getPrestamista()%></th>
                 <th><%= objeto.getFecha_inicio()%> </th>
                 <th><%= objeto.getFecha_fin()%></th>
-                <th>Eliminar </th>
-                <th>Modificar </th>
+                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getIdObraDeArte()%>&Seccion=ColeccionPrestados'">Eliminar</button> </th>
+                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Informacion?id=<%=objeto.getIdObraDeArte()%>&Seccion=ColeccionPrestados'">Modificar</button> </th>
             </tr>
             <%
                     }

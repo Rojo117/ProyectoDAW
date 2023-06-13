@@ -48,7 +48,7 @@
                 <th><%= objeto.getEstilo()%></th>
                 <th><%= objeto.getDescripcion()%></th>
                 <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getNombre()%>&Seccion=Artistas'">Eliminar</button> </th>
-                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Modificar?id=<%=objeto.getNombre()%>'">Modificar</button> </th>
+                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Informacion?id=<%=objeto.getNombre()%>&Seccion=Artistas'">Modificar</button> </th>
             </tr>
             <%
                     }

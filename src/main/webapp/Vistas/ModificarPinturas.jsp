@@ -30,7 +30,7 @@
             <input value="<%= objeto.getMaterial()%>" type="text"  name="material"><br>
 
             <label>Estilo:</label>
-            <input value="<%= objeto.getEstilo()%>" type="text"  name="Estilo"><br>
+            <input value="<%= objeto.getEstilo()%>" type="text"  name="estilo"><br>
 
            <input type="submit" value="Modificar">
 

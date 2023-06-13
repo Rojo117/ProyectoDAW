@@ -40,8 +40,8 @@
                 <th><%= objeto.getAltura()%></th>
                 <th><%= objeto.getPeso()%> </th>
                 <th><%= objeto.getRepresentacion()%></th>
-                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getIdObraDeArte()%>&Seccion=Artistas'">Eliminar</button> </th>
-                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Modificar?id=<%=objeto.getIdObraDeArte()%>'">Modificar</button> </th>
+               <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getIdObraDeArte()%>&Seccion=Estatuas'">Eliminar</button> </th>
+                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Informacion?id=<%=objeto.getIdObraDeArte()%>&Seccion=Estatuas'">Modificar</button> </th>
             </tr>
             <%
                     }

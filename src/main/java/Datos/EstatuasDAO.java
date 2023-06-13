@@ -5,6 +5,8 @@
 package Datos;
 
 
+import Modelos.Exposiciones;
+import Modelos.escultura;
 import Modelos.estatuas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,7 +32,7 @@ public class EstatuasDAO {
             public List<estatuas> listarTodo() {
         try {
             estatuaslist = new ArrayList<>();
-            ps = con.prepareStatement("SELECT * FROM artistas WHERE estatus = 1");
+            ps = con.prepareStatement("SELECT * FROM estatuas WHERE estatus = 1");
             rs = ps.executeQuery();
             while (rs.next()) {
                 estatuas = new estatuas();
@@ -50,4 +52,44 @@ public class EstatuasDAO {
             Conexion.close(ps);
         }
     }
+
+    public boolean modificar(estatuas objeto) {
+ try {
+            ps = con.prepareStatement("UPDATE estatuas SET altura=?, peso=?, representacion=? WHERE idObraDeArte=?");
+
+            ps.setInt(1, objeto.getAltura());
+            ps.setInt(2, objeto.getPeso());
+            ps.setString(3, objeto.getRepresentacion());
+            ps.setInt(4, objeto.getIdObraDeArte());
+
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }    }
+
+    public estatuas leer(int id8) {
+try {
+            estatuas = new estatuas();
+            ps = con.prepareStatement("SELECT * FROM estatuas WHERE idObraDeArte=?");
+            ps.setInt(1, id8);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+             estatuas.setIdObraDeArte(rs.getInt("idObraDeArte"));
+                estatuas.setAltura(rs.getInt("altura"));
+                estatuas.setPeso(rs.getInt("peso"));
+                estatuas.setRepresentacion(rs.getString("representacion"));
+
+            }
+            return estatuas;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(ps);
+        }    }
 }
