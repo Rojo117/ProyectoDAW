@@ -125,4 +125,26 @@ public class Objeto_de_arteDAO {
              Conexion.close(ps);
         }
     }
+
+    public boolean Registrar(objeto_de_arte objeto) {
+        try {
+            ps = con.prepareStatement("INSERT INTO objeto_de_arte (idobradearte,nombreobra,artista,id_coleccion,fecha_creacion,titulo,descripcion,idepoca,idorigen,idtipo,estatus) VALUES (?,?,?,?,?,?,?,?,?,?,?) ");
+            ps.setInt(10, objeto.getIdObraDeArte());
+            ps.setString(1, objeto.getNombreObra());
+            ps.setString(2, objeto.getArtista());
+            ps.setInt(3, objeto.getId_coleccion());
+            ps.setDate(4, objeto.getFecha_creacion());
+            ps.setString(5, objeto.getTitulo());
+            ps.setString(6, objeto.getDescripcion());
+            ps.setInt(7, objeto.getIdEpoca());
+            ps.setInt(8, objeto.getIdOrigen());
+            ps.setInt(9, objeto.getIdTipo());
+            
+            return ps.executeUpdate()>0;
+        } catch (SQLException e) {
+             e.printStackTrace();
+            return false;
+        } finally {
+             Conexion.close(ps);
+        }    }
 }

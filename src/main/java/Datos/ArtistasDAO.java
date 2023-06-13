@@ -113,5 +113,27 @@ public class ArtistasDAO {
             Conexion.close(rs);
             Conexion.close(ps);
         }
-    }}
+    }
+
+    public boolean Registrar(artistas objeto) {
+ try {
+            ps = con.prepareStatement("INSERT INTO artistas(nombre,fecha_nacimiento,fecha_fallecimiento,pais_origen,epoca,estilo,descripcion,estatus)VALUES (?,?,?,?,?,?,?,?)");
+            ps.setString(1, objeto.getNombre());
+            ps.setDate(2, objeto.getFecha_nacimiento());
+            ps.setDate(3, objeto.getFecha_fallecimiento());        
+            ps.setString(4, objeto.getPais_origen());
+            ps.setInt(5, objeto.getEpoca());
+            ps.setString(6, objeto.getEstilo());
+            ps.setString(7, objeto.getDescripcion());
+            ps.setInt(8, 1);
+
+            
+            return ps.execute();
+        } catch (SQLException e) {
+             e.printStackTrace();
+            return false;
+        } finally {
+             Conexion.close(ps);
+        }     }
+}
 

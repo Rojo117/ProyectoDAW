@@ -29,7 +29,7 @@
         <input value="" type="date"  name="fecha_fin"><br>
         
              
-        <input type="submit" value="Modificar">
+        <input type="submit" value="Registrar">
     </form>
         <button onclick="window.location.href = '<%= request.getContextPath()%>/listarExposiciones'">Regresar al menu anterior</button><br>
     </body>

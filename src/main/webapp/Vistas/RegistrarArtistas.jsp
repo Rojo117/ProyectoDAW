@@ -30,8 +30,8 @@
         <label>País de Origen: </label>
         <input value="" type="text"  name="pais_origen"><br>
         
-        <label>Época: </label>
-        <input value="" type="text"  name="epoca"hidden>
+        <label>ID Epoca: </label>
+        <input value="" type="number"  name="epoca"><br>
         
         <label>Estilo: </label>
         <input value="" type="text"  name="estilo"><br>
