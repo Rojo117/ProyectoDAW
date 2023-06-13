@@ -17,7 +17,7 @@
     </head>
     <body>
         <h1>Registrar Otras Colecciones</h1>
-        <form action="<%= request.getContextPath()%>/modificarOtros" method="POST">
+        <form action="<%= request.getContextPath()%>/registrarColeccionOtros" method="POST">
             <label>Id de la Obra:</label>
             <input value="" type="number"  name="idObraDeArte"><br>
 

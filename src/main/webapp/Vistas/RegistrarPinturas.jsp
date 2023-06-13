@@ -17,7 +17,7 @@
     </head>
     <body>
         <h1>Registrar Pintura</h1>
-       <form action="<%= request.getContextPath()%>/modificarPinturas" method="POST">
+       <form action="<%= request.getContextPath()%>/registrarPinturas" method="POST">
            <label>Id de la Obra:</label>
             <input value="" type="number"  name="idObraDeArte"><br>
 

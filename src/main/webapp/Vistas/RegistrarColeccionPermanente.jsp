@@ -17,7 +17,7 @@
     </head>
     <body>
         <h1>Registrar Coleccion Permanente</h1>
-        <form action="<%= request.getContextPath()%>/modificarColeccionPermanente" method="POST">
+        <form action="<%= request.getContextPath()%>/registrarColeccionPermanente" method="POST">
             <label>Id de la Obra: </label>
              <input value="" type="text"  name="idObraDeArte"><br>
 

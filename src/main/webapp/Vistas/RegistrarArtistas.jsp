@@ -17,7 +17,7 @@
     </head>
     <body>
         <h1>Registrar Artistas</h1>
- <form action="<%= request.getContextPath()%>/modificarArtistas" method="POST">
+ <form action="<%= request.getContextPath()%>/registrarArtistas" method="POST">
         <label>Nombre del Artista: </label>
         <input value="" type="text"  name="nombre"><br>
         

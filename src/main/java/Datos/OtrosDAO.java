@@ -19,16 +19,18 @@ import java.util.List;
  * @author conej
  */
 public class OtrosDAO {
+
     private Connection con = null;
     private ResultSet rs = null;
-    private PreparedStatement ps= null;
+    private PreparedStatement ps = null;
     private otros otros = null;
-    private List<otros>otroslist;
+    private List<otros> otroslist;
 
     public OtrosDAO() {
         con = Conexion.getConnection();
-}
-                public List<otros> listarTodo() {
+    }
+
+    public List<otros> listarTodo() {
         try {
             otroslist = new ArrayList<>();
             ps = con.prepareStatement("SELECT * FROM otros WHERE estatus = 1");
@@ -68,13 +70,13 @@ public class OtrosDAO {
     }
 
     public otros leer(int id9) {
-                        try {
+        try {
             otros = new otros();
             ps = con.prepareStatement("SELECT * FROM otros WHERE idObraDeArte=?");
             ps.setInt(1, id9);
             rs = ps.executeQuery();
             if (rs.next()) {
-             otros.setIdObraDeArte(rs.getInt("idObraDeArte"));
+                otros.setIdObraDeArte(rs.getInt("idObraDeArte"));
                 otros.setTipo(rs.getString("tipo"));
                 otros.setEstilo(rs.getString("estilo"));
 
@@ -91,7 +93,7 @@ public class OtrosDAO {
     }
 
     public boolean Eliminar(int id9) {
-try {
+        try {
             ps = con.prepareStatement("UPDATE otros SET estatus=? WHERE idobradearte=?");
             ps.setInt(1, 0);
             ps.setInt(2, id9);
@@ -101,6 +103,40 @@ try {
             return false;
         } finally {
             Conexion.close(ps);
-        }    }
-} 
+        }
+    }
 
+    public boolean comprobar(int idObraDeArte) {
+        try {
+            ps = con.prepareStatement("SELECT * FROM otros WHERE idobradearte=?");
+            ps.setInt(1, idObraDeArte);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }    }
+
+    public boolean Registrar(otros objeto) {
+        try {
+            ps = con.prepareStatement("INSERT INTO otros (idobradearte,tipo,estilo,estatus)VALUES (?,?,?,?)");
+            ps.setInt(1, objeto.getIdObraDeArte());
+            ps.setString(2, objeto.getTipo());
+            ps.setString(3, objeto.getEstilo());
+            ps.setInt(4, 1);
+            return ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }
+    }
+}

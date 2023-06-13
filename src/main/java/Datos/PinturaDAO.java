@@ -57,7 +57,7 @@ public class PinturaDAO {
     public boolean modificar(pintura objeto) {
         try {
             ps = con.prepareStatement("UPDATE pintura SET tipo_pintura=?, material=?, estilo=? WHERE idObraDeArte=?");
-            
+
             ps.setString(1, objeto.getTipo_pintura());
             ps.setString(2, objeto.getMaterial());
             ps.setString(3, objeto.getEstilo());
@@ -73,13 +73,13 @@ public class PinturaDAO {
     }
 
     public pintura leer(int id10) {
-                        try {
+        try {
             pintura = new pintura();
             ps = con.prepareStatement("SELECT * FROM pintura WHERE idObraDeArte=?");
             ps.setInt(1, id10);
             rs = ps.executeQuery();
             if (rs.next()) {
-              pintura.setIdObraDeArte(rs.getInt("idObraDeArte"));
+                pintura.setIdObraDeArte(rs.getInt("idObraDeArte"));
                 pintura.setTipo_pintura(rs.getString("tipo_pintura"));
                 pintura.setMaterial(rs.getString("material"));
                 pintura.setEstilo(rs.getString("estilo"));
@@ -93,10 +93,11 @@ public class PinturaDAO {
         } finally {
             Conexion.close(rs);
             Conexion.close(ps);
-        }    }
+        }
+    }
 
     public boolean Eliminar(int id10) {
-try {
+        try {
             ps = con.prepareStatement("UPDATE pintura SET estatus=? WHERE idobradearte=?");
             ps.setInt(1, 0);
             ps.setInt(2, id10);
@@ -106,5 +107,43 @@ try {
             return false;
         } finally {
             Conexion.close(ps);
-        }    }
+        }
+    }
+
+    public boolean comprobar(int idObraDeArte) {
+        try {
+            ps = con.prepareStatement("SELECT * FROM pintura WHERE idobradearte=?");
+            ps.setInt(1, idObraDeArte);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }
+    }
+
+    public boolean Registrar(pintura objeto) {
+        try {
+            ps = con.prepareStatement("INSERT INTO pintura(idobradearte,tipo_pintura,material,estilo,estatus)VALUES(?,?,?,?,?)");
+            ps.setInt(1, objeto.getIdObraDeArte());
+            ps.setString(2, objeto.getTipo_pintura());
+            ps.setString(3, objeto.getMaterial());
+            ps.setString(4, objeto.getEstilo());
+            ps.setInt(5, 1);
+
+            return ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }
+    }
 }

@@ -17,7 +17,7 @@
     </head>
     <body>
         <h1>Registrar Coleccion Prestados</h1>
-       <form action="<%= request.getContextPath()%>/modificarColeccionPrestados" method="POST">
+       <form action="<%= request.getContextPath()%>/registrarColeccionTemporal" method="POST">
             
            <label>Id de la obra:</label>
             <input value="" type="number"  name="idObraDeArte"><br>
