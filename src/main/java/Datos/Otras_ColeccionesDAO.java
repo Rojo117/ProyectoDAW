@@ -113,4 +113,42 @@ try {
         } finally {
             Conexion.close(ps);
         }    }
+
+    public boolean Registrar(otras_colecciones objeto) {
+try {
+            ps = con.prepareStatement("INSERT INTO otras_colecciones (idobradearte, nombre_coleccion, tipocoleccion, descripcion, direccion,telefono,nombre_contacto,estatus)VALUES (?,?,?,?,?,?,?,?) ");
+           ps.setInt(1, objeto.getIdObraDeArte());
+            ps.setString(2, objeto.getNombre_coleccion());
+            ps.setString(3, objeto.getTipoColeccion());
+            ps.setString(4, objeto.getDescripcion());
+            ps.setString(5, objeto.getDireccion());
+            ps.setString(6, objeto.getTelefono());
+            ps.setString(7, objeto.getNombre_contacto());
+            ps.setInt(8, 1);
+            return ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }
+    }    
+
+    public boolean comprobar(int idObraDeArte) {
+        try {
+            ps = con.prepareStatement("SELECT * FROM otras_colecciones WHERE idobradearte=?");
+            ps.setInt(1, idObraDeArte);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }    }
 }

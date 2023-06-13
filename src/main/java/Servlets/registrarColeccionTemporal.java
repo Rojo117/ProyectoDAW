@@ -4,9 +4,10 @@
  */
 package Servlets;
 
-import Datos.Otras_ColeccionesDAO;
-import Modelos.otras_colecciones;
+import Datos.PrestadosDAO;
+import Modelos.prestados;
 import java.io.IOException;
+import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author conej
  */
-@WebServlet(name = "registrarColeccionOtros", urlPatterns = {"/registrarColeccionOtros"})
-public class registrarColeccionOtros extends HttpServlet {
+@WebServlet(name = "registrarColeccionTemporal", urlPatterns = {"/registrarColeccionTemporal"})
+public class registrarColeccionTemporal extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -29,15 +30,12 @@ public class registrarColeccionOtros extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        otras_colecciones objeto = new otras_colecciones();
+        prestados objeto = new prestados();
         objeto.setIdObraDeArte(Integer.parseInt(request.getParameter("idObraDeArte")));
-        objeto.setNombre_coleccion(request.getParameter("nombre_coleccion"));//string
-        objeto.setTipoColeccion(request.getParameter("tipoColeccion"));//string
-        objeto.setDescripcion(request.getParameter("descripcion"));//string
-        objeto.setDireccion(request.getParameter("direccion"));//string
-        objeto.setTelefono(request.getParameter("telefono"));//string
-        objeto.setNombre_contacto(request.getParameter("nombre_contacto"));//string
-        Otras_ColeccionesDAO access = new Otras_ColeccionesDAO();
+        objeto.setPrestamista(request.getParameter("prestamista"));//string
+        objeto.setFecha_inicio(Date.valueOf(request.getParameter("fecha_inicio")));//date
+        objeto.setFecha_fin(Date.valueOf(request.getParameter("fecha_fin")));//date
+        PrestadosDAO access = new PrestadosDAO();
                  boolean existe = access.comprobar(objeto.getIdObraDeArte());
         if (existe) {
             System.out.println("Esta coleccion de arte ya existe");
@@ -52,10 +50,10 @@ public class registrarColeccionOtros extends HttpServlet {
         }
         }
        
-         response.sendRedirect(request.getContextPath()+"/listarColeccionOtros");
+         response.sendRedirect(request.getContextPath()+"/listarColeccionTemporal");
     }
 
-    }
 
+    }
 
 

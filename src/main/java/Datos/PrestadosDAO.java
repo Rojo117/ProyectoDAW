@@ -104,4 +104,39 @@ try {
         } finally {
             Conexion.close(ps);
         }    }
+
+    public boolean Registrar(prestados objeto) {
+ try {
+            ps = con.prepareStatement("INSERT INTO prestados (idobradearte,prestamista,fecha_inicio,fecha_fin,estatus) VALUES (?,?,?,?,?)");
+           
+            ps.setInt(1, objeto.getIdObraDeArte());
+            ps.setString(2, objeto.getPrestamista());
+            ps.setDate(3, objeto.getFecha_inicio());
+            ps.setDate(4, objeto.getFecha_fin());
+            ps.setInt(5, 1);
+            return ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }    }
+
+    public boolean comprobar(int idObraDeArte) {
+        try {
+            ps = con.prepareStatement("SELECT * FROM prestados WHERE idobradearte=?");
+            ps.setInt(1, idObraDeArte);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }    }
 }

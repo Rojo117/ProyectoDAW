@@ -4,9 +4,7 @@
  */
 package Datos;
 
-import Modelos.artistas;
 import Modelos.escultura;
-import Modelos.pintura;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

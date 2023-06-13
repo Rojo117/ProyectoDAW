@@ -104,4 +104,39 @@ try {
         } finally {
             Conexion.close(ps);
         }    }
+
+    public boolean comprobar(int idObraDeArte) {
+        try {
+            ps = con.prepareStatement("SELECT * FROM coleccion_permanente WHERE idobradearte=?");
+            ps.setInt(1, idObraDeArte);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }    }
+
+    public boolean Registrar(coleccion_permanente objeto) {
+try {
+            ps = con.prepareStatement("INSERT INTO coleccion_permanente(idobradearte,fecha_adquisicion,estado,costo,estatus) VALUES (?,?,?,?,?)");
+            ps.setInt(1, objeto.getIdObraDeArte());
+            ps.setDate(2, objeto.getFecha_adquisicion());
+            ps.setString(3, objeto.getEstado());
+            ps.setInt(4, objeto.getCosto());
+            ps.setInt(5,1);
+            
+            return ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }    }
 }

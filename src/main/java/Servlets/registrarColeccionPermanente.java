@@ -4,9 +4,10 @@
  */
 package Servlets;
 
-import Datos.Otras_ColeccionesDAO;
-import Modelos.otras_colecciones;
+import Datos.Coleccion_permanenteDAO;
+import Modelos.coleccion_permanente;
 import java.io.IOException;
+import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author conej
  */
-@WebServlet(name = "registrarColeccionOtros", urlPatterns = {"/registrarColeccionOtros"})
-public class registrarColeccionOtros extends HttpServlet {
+@WebServlet(name = "registrarColeccionPermanente", urlPatterns = {"/registrarColeccionPermanente"})
+public class registrarColeccionPermanente extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -29,15 +30,12 @@ public class registrarColeccionOtros extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        otras_colecciones objeto = new otras_colecciones();
+        coleccion_permanente objeto = new coleccion_permanente();
         objeto.setIdObraDeArte(Integer.parseInt(request.getParameter("idObraDeArte")));
-        objeto.setNombre_coleccion(request.getParameter("nombre_coleccion"));//string
-        objeto.setTipoColeccion(request.getParameter("tipoColeccion"));//string
-        objeto.setDescripcion(request.getParameter("descripcion"));//string
-        objeto.setDireccion(request.getParameter("direccion"));//string
-        objeto.setTelefono(request.getParameter("telefono"));//string
-        objeto.setNombre_contacto(request.getParameter("nombre_contacto"));//string
-        Otras_ColeccionesDAO access = new Otras_ColeccionesDAO();
+        objeto.setFecha_adquisicion(Date.valueOf(request.getParameter("fecha_adquisicion")));//date
+        objeto.setEstado(request.getParameter("estado"));//string
+        objeto.setCosto(Integer.parseInt(request.getParameter("costo")));//int
+        Coleccion_permanenteDAO access = new Coleccion_permanenteDAO();
                  boolean existe = access.comprobar(objeto.getIdObraDeArte());
         if (existe) {
             System.out.println("Esta coleccion de arte ya existe");
@@ -52,8 +50,9 @@ public class registrarColeccionOtros extends HttpServlet {
         }
         }
        
-         response.sendRedirect(request.getContextPath()+"/listarColeccionOtros");
+         response.sendRedirect(request.getContextPath()+"/listarColeccionPermanente");
     }
+
 
     }
 
