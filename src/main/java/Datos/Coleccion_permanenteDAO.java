@@ -31,7 +31,7 @@ public class Coleccion_permanenteDAO {
     public List<coleccion_permanente> listarTodo() {
         try {
             coleccion_permanentelist = new ArrayList<>();
-            ps = con.prepareStatement("SELECT * FROM coleccion_permanente");
+            ps = con.prepareStatement("SELECT * FROM coleccion_permanente WHERE estatus=1");
             rs = ps.executeQuery();
             while (rs.next()) {
                 coleccion_permanente = new coleccion_permanente();

@@ -31,7 +31,7 @@ public class PrestadosDAO {
     public List<prestados> listarTodo() {
         try {
             prestadoslist = new ArrayList<>();
-            ps = con.prepareStatement("SELECT * FROM prestados");
+            ps = con.prepareStatement("SELECT * FROM prestados WHERE estatus=1");
             rs = ps.executeQuery();
             while (rs.next()) {
                 prestados = new prestados();

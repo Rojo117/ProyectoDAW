@@ -31,7 +31,7 @@ public class Otras_ColeccionesDAO {
     public List<otras_colecciones> listarTodo() {
         try {
             otrascoleccioneslist = new ArrayList<>();
-            ps = con.prepareStatement("SELECT * FROM otras_colecciones");
+            ps = con.prepareStatement("SELECT * FROM otras_colecciones WHERE estatus=1");
             rs = ps.executeQuery();
             while (rs.next()) {
                 otrascolecciones = new otras_colecciones();
