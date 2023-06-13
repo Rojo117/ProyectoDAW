@@ -94,4 +94,17 @@ public class PinturaDAO {
             Conexion.close(rs);
             Conexion.close(ps);
         }    }
+
+    public boolean Eliminar(int id10) {
+try {
+            ps = con.prepareStatement("UPDATE pintura SET estatus=? WHERE idobradearte=?");
+            ps.setInt(1, 0);
+            ps.setInt(2, id10);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }    }
 }

@@ -97,4 +97,17 @@ try {
             Conexion.close(rs);
             Conexion.close(ps);
         }    }
+
+    public boolean Eliminar(int id7) {
+try {
+            ps = con.prepareStatement("UPDATE escultura SET estatus=? WHERE idobradearte=?");
+            ps.setInt(1, 0);
+            ps.setInt(2, id7);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }    }
 }
