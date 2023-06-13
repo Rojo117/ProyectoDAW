@@ -23,16 +23,16 @@
 
             <input value="<%= objeto.getIdObraDeArte()%>" type="text"  name="idObraDeArte" hidden>
 
-            <label>material:</label>
+            <label>Material: </label>
             <input value="<%= objeto.getMaterial()%>" type="text"  name="material"><br>
 
-            <label>altura:</label>
-            <input value="<%= objeto.getAltura()%>" type="text"  name="altura">
+            <label>Altura en cms: </label>
+            <input value="<%= objeto.getAltura()%>" type="number"  name="altura">
 
-            <label>Peso:</label>
-            <input value="<%= objeto.getPeso()%>" type="text"  name="peso"><br>
+            <label>Peso en gramos: </label>
+            <input value="<%= objeto.getPeso()%>" type="number"  name="peso"><br>
 
-            <label>Estilo:</label>
+            <label>Estilo: </label>
             <input value="<%= objeto.getEstilo()%>" type="text"  name="estilo"><br>
 
             <input type="submit" value="Modificar">

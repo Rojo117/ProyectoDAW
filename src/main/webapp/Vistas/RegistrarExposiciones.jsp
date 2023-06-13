@@ -19,16 +19,20 @@
         <h1>Registrar Exposiciones</h1>
         <form action="<%= request.getContextPath()%>/modificarExposiciones" method="POST">
        
-        <input value="<%= %>" type="text"  name="idExposicion"hidden>
+        <label>Id de la Exposicion:</label>
+        <input value="" type="number"  name="idExposicion"><br>
         
-        <label>Nombre:</label>
-        <input value="<%= %>" type="text" name="nombre"><br>
+        <label>Nombre de la Exposicion: </label>
+        <input value="" type="text" name="nombre"><br>
         
-        <label>Fecha de Inicio:</label>
-        <input value="<%= %>" type="text"  name="fecha_inicio"><br>
+        <label>Fecha de Inicio: </label>
+        <input value="" type="date"  name="fecha_inicio"><br>
         
-        <label>Fecha de Fin:</label>
-        <input value="<%= %>" type="text"  name="fecha_fin"><br>
+        <label>Fecha de Fin: </label>
+        <input value="" type="date"  name="fecha_fin"><br>
+        
+        <label>Estatus: </label>
+            <input value="" type="number"  name="estatus"><br>
              
         <input type="submit" value="Modificar">
     </form>

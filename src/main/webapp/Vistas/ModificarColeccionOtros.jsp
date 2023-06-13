@@ -21,21 +21,21 @@
         <h1>MODIFICAR COLECCION OTROS</h1>
         <form action="<%= request.getContextPath()%>/modificarColeccionOtros" method="POST">
 
-            <input value="<%= objeto.getIdObraDeArte()%>" type="text"  name="idObraDeArte" hidden>
+            <input value="<%= objeto.getIdObraDeArte()%>" type="number"  name="idObraDeArte" hidden>
 
-            <label>nombreObra:</label>
+            <label>Nombre de la obra de arte: </label>
             <input value="<%= objeto.getNombre_coleccion()%>" type="text"  name="nombre_coleccion"><br>
 
-            <label>tipoColeccion:</label>  
+            <label>Tipo de coleccion: </label>  
             <input value="<%= objeto.getTipoColeccion()%>" type="text"  name="tipoColeccion">
 
-            <label>descripcion</label>
+            <label>Descripcion</label>
             <input value="<%= objeto.getDescripcion()%>" type="text"  name="descripcion"><br>
 
-            <label>direccion</label>
+            <label>Direccion</label>
             <input value="<%= objeto.getDireccion()%>" type="text"  name="direccion"><br>
 
-            <label>telefono</label>
+            <label>Telefono</label>
             <input value="<%= objeto.getTelefono()%>" type="text"  name="telefono"><br>
 
             <label>nombre_contacto</label>

@@ -21,15 +21,15 @@
         <h1>MODIFICAR COLECCION PERMANENTE</h1>
         <form action="<%= request.getContextPath()%>/modificarColeccionPermanente" method="POST">
 
-             <input value="<%= objeto.getIdObraDeArte()%>" type="text"  name="idObraDeArte" hidden>
+             <input value="<%= objeto.getIdObraDeArte()%>" type="number"  name="idObraDeArte" hidden>
 
-            <label>fecha_adquisicion</label>
-            <input value="<%= objeto.getFecha_adquisicion()%>" type="text"  name="fecha_adquisicion"><br>
+            <label>Fecha de adquisicion: </label>
+            <input value="<%= objeto.getFecha_adquisicion()%>" type="date"  name="fecha_adquisicion"><br>
 
-            <label>estado</label>  
+            <label>Estado: </label>  
             <input value="<%= objeto.getEstado()%>" type="text"  name="estado">
 
-            <label>costo</label>
+            <label>Costo: </label>
             <input value="<%= objeto.getCosto()%>" type="text"  name="costo"><br>
 
             <input type="submit" value="Modificar">

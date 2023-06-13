@@ -18,19 +18,22 @@
     <body>
         <h1>Registrar Pintura</h1>
        <form action="<%= request.getContextPath()%>/modificarPinturas" method="POST">
+           <label>Id de la Obra:</label>
+            <input value="" type="number"  name="idObraDeArte"><br>
 
-            <input value="<%=%>" type="text"  name="idObraDeArte" hidden>
-
-            <label>Tipo_pintura:</label>
-            <input value="<%=%>"  type="text"  name="tipo_pintura"><br>
+            <label>Tipo de pintura:</label>
+            <input value=""  type="text"  name="tipo_pintura"><br>
 
             <label>Material:</label>
-            <input value="<%=%>"  type="text"  name="material"><br>
+            <input value=""  type="text"  name="material"><br>
 
             <label>Estilo:</label>
-            <input value="<%=%>"  type="text"  name="estilo"><br>
+            <input value=""  type="text"  name="estilo"><br>
+            
+            <label>Estatus:</label>
+            <input value="" type="number"  name="estatus"><br>
 
-           <input type="submit" value="Modificar">
+           <input type="submit" value="Registrar">
 
         </form>
         <button onclick="window.location.href = '<%= request.getContextPath()%>/listarPintura'">Regresar al menu anterior</button><br>

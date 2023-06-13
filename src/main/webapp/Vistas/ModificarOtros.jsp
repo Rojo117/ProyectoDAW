@@ -21,12 +21,12 @@
         <h1>MODIFICAR OTRO</h1>
         <form action="<%= request.getContextPath()%>/modificarOtros" method="POST">
 
-            <input value="<%= objeto.getIdObraDeArte()%>" type="text"  name="idObraDeArte" hidden>
+            <input value="<%= objeto.getIdObraDeArte()%>" type="number"  name="idObraDeArte" hidden>
 
-            <label>Tipo:</label>
+            <label>Tipo: </label>
             <input value="<%= objeto.getTipo()%>" type="text"  name="tipo"><br>
 
-            <label>Estilo:</label>
+            <label>Estilo: </label>
             <input value="<%= objeto.getEstilo()%>" type="text"  name="estilo"><br>
 
             <input type="submit" value="Modificar">

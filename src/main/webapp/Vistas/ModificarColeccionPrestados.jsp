@@ -21,16 +21,16 @@
         <h1>MODIFICAR COLECCION PRESTADOS</h1>
         <form action="<%= request.getContextPath()%>/modificarColeccionPrestados" method="POST">
 
-            <input value="<%= objeto.getIdObraDeArte()%>" type="text"  name="idObraDeArte" hidden>
+            <input value="<%= objeto.getIdObraDeArte()%>" type="number"  name="idObraDeArte" hidden>
 
-            <label>Nombre del Prestamista:</label>
+            <label>Nombre del Prestamista: </label>
             <input value="<%= objeto.getPrestamista()%>" type="text"  name="prestamista"><br>
 
-             <label>fecha_inicio</label>
-            <input value="<%= objeto.getFecha_inicio()%>" type="text"  name="fecha_inicio"><br>
+             <label>Fecha de inicio del prestamo: </label>
+            <input value="<%= objeto.getFecha_inicio()%>" type="date"  name="fecha_inicio"><br>
 
-            <label>fecha_fin</label>
-            <input value="<%= objeto.getFecha_fin()%>" type="text"  name="fecha_fin"><br>
+            <label>Fecha de fin del prestamo: </label>
+            <input value="<%= objeto.getFecha_fin()%>" type="date"  name="fecha_fin"><br>
 
 
             <input type="submit" value="Modificar">

@@ -18,19 +18,22 @@
     <body>
         <h1>Registrar Otras Colecciones</h1>
         <form action="<%= request.getContextPath()%>/modificarOtros" method="POST">
-
-            <input value="<%= %>" type="text"  name="idObraDeArte" hidden>
+            <label>Id de la Obra:</label>
+            <input value="" type="number"  name="idObraDeArte"><br>
 
             <label>Tipo:</label>
-            <input value="<%= %>" type="text"  name="tipo"><br>
+            <input value="" type="text"  name="tipo"><br>
 
             <label>Estilo:</label>
-            <input value="<%= %>" type="text"  name="estilo"><br>
+            <input value="" type="text"  name="estilo"><br>
+            
+            <label>Estatus:</label>
+            <input value="" type="number"  name="estatus"><br>
 
-            <input type="submit" value="Modificar">
+            <input type="submit" value="Registrar">
 
         </form>
-        <button onclick="window.location.href = '<%= request.getContextPath()%>/listarOtro'">Regresar al menu anterior</button><br>
+        <button onclick="window.location.href = '<%= request.getContextPath()%>/listarColeccionOtros'">Regresar al menu anterior</button><br>
 
     </body>
 </html>

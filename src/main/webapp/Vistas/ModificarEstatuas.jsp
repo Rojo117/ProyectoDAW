@@ -21,15 +21,15 @@
         <h1>MODIFICAR ESTATUA</h1>
         <form action="<%= request.getContextPath()%>/modificarEstatuas" method="POST">
 
-            <input value="<%= objeto.getIdObraDeArte()%>" type="text"  name="idObraDeArte" hidden>
+            <input value="<%= objeto.getIdObraDeArte()%>" type="number"  name="idObraDeArte" hidden>
 
-            <label>Altura:</label>
-            <input value="<%= objeto.getAltura()%>" type="text"  name="altura"><br>
+            <label>Altura en cms: </label>
+            <input value="<%= objeto.getAltura()%>" type="number"  name="altura"><br>
 
-            <label>Peso:</label>
-            <input value="<%= objeto.getPeso()%>" type="text"  name="peso"><br>
+            <label>Peso en gramos: </label>
+            <input value="<%= objeto.getPeso()%>" type="number"  name="peso"><br>
 
-            <label>Representacion:</label>
+            <label>Representacion: </label>
             <input value="<%= objeto.getRepresentacion()%>" type="text"  name="representacion"><br>
 
             <input type="submit" value="Modificar">

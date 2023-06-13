@@ -18,16 +18,19 @@
     <body>
         <h1>Registrar Otro</h1>
         <form action="<%= request.getContextPath()%>/modificarOtros" method="POST">
+            <label>ID de la Obra:</label>
+            <input value="" type="number"  name="idObraDeArte"><br>
 
-            <input value="<%=%>" type="text"  name="idObraDeArte" hidden>
+            <label>Tipo: </label>
+            <input value="" type="text"  name="tipo"><br>
 
-            <label>Tipo:</label>
-            <input value="<%=%>" type="text"  name="tipo"><br>
+            <label>Estilo: </label>
+            <input value="" type="text"  name="estilo"><br>
+            
+            <label>Estatus: </label>
+            <input value="" type="number"  name="estatus"><br>
 
-            <label>Estilo:</label>
-            <input value="<%=%>" type="text"  name="estilo"><br>
-
-            <input type="submit" value="Modificar">
+            <input type="submit" value="Registar">
 
         </form>
         <button onclick="window.location.href = '<%= request.getContextPath()%>/listarOtro'">Regresar al menu anterior</button><br>

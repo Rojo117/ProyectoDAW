@@ -20,16 +20,16 @@
         <h1>MODIFICAR EXPOSCIONES</h1>
         <form action="<%= request.getContextPath()%>/modificarExposiciones" method="POST">
        
-        <input value="<%= objeto.getIdExposicion()%>" type="text"  name="idExposicion"hidden>
+        <input value="<%= objeto.getIdExposicion()%>" type="number"  name="idExposicion"hidden>
         
-        <label>Nombre:</label>
+        <label>Nombre de la Exposicion:</label>
         <input value="<%= objeto.getNombre()%>" type="text" name="nombre"><br>
         
         <label>Fecha de Inicio:</label>
-        <input value="<%= objeto.getFecha_inicio()%>" type="text"  name="fecha_inicio"><br>
+        <input value="<%= objeto.getFecha_inicio()%>" type="date"  name="fecha_inicio"><br>
         
         <label>Fecha de Fin:</label>
-        <input value="<%= objeto.getFecha_fin()%>" type="text"  name="fecha_fin"><br>
+        <input value="<%= objeto.getFecha_fin()%>" type="date"  name="fecha_fin"><br>
              
         <input type="submit" value="Modificar">
     </form>

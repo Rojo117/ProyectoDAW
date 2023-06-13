@@ -18,20 +18,24 @@
     <body>
         <h1>Registrar Coleccion Prestados</h1>
        <form action="<%= request.getContextPath()%>/modificarColeccionPrestados" method="POST">
-
-            <input value="<%= %>" type="text"  name="idObraDeArte" hidden>
+            
+           <label>Id de la obra:</label>
+            <input value="" type="number"  name="idObraDeArte"><br>
 
             <label>Nombre del Prestamista:</label>
-            <input value="<%= %>" type="text"  name="prestamista"><br>
+            <input value="" type="text"  name="prestamista"><br>
 
-             <label>fecha_inicio</label>
-            <input value="<%= %>" type="text"  name="fecha_inicio"><br>
+             <label>Fecha de inicio de prestamo: </label>
+            <input value="" type="date"  name="fecha_inicio"><br>
 
-            <label>fecha_fin</label>
-            <input value="<%= %>" type="text"  name="fecha_fin"><br>
+            <label>Fecha de fin de prestamo:</label>
+            <input value="" type="date"  name="fecha_fin"><br>
+            
+            <label>Estatus:</label>
+            <input value="" type="number"  name="estatus"><br>
 
 
-            <input type="submit" value="Modificar">
+            <input type="submit" value="Registrar">
 
         </form>
         <button onclick="window.location.href = '<%= request.getContextPath()%>/listarColeccionTemporal'">Regresar al menu anterior</button><br>

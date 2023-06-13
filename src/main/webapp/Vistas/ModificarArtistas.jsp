@@ -24,10 +24,10 @@
         <input value="<%= objeto.getNombre()%>" type="text"  name="nombre" hidden>
         
         <label>Fecha de Nacimiento:</label>
-        <input value="<%= objeto.getFecha_nacimiento()%>" type="text"  name="fecha_nacimiento"><br>
+        <input value="<%= objeto.getFecha_nacimiento()%>" type="date"  name="fecha_nacimiento"><br>
         
         <label>Fecha de Fallecimiento:</label>
-        <input value="<%= objeto.getFecha_fallecimiento()%>" type="text"  name="fecha_fallecimiento"><br>
+        <input value="<%= objeto.getFecha_fallecimiento()%>" type="date"  name="fecha_fallecimiento"><br>
         
         <label>País de Origen:</label>
         <input value="<%= objeto.getPais_origen()%>" type="text"  name="pais_origen"><br>

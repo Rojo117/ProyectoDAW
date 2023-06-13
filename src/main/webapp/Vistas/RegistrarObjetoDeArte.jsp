@@ -20,36 +20,40 @@
         <h1>Registrar objeto</h1>
  <form action="<%= request.getContextPath()%>/modificarObjetoDeArte" method="POST">
 
-            <input value="<%= %>" type="text"  name="idObraDeArte" hidden>
+     <label>Id de la obra:</label>
+            <input value="" type="number"  name="idObraDeArte"><br>
 
-            <label>nombreObra:</label>
-            <input value="<%= %>" type="text"  name="nombreObra"><br>
+            <label>Nombre de Obra:</label>
+            <input value="" type="text"  name="nombreObra"><br>
 
+            <label>Nombre del artista:</label>
+            <input value="" type="text"  name="artista"><br>
 
-            <input value="<%= %>" type="text"  name="artista"hidden>
+            <label>Id coleccion::</label>
+            <input value="" type="number"  name="id_coleccion"><br>
 
-            <label>id_coleccion:</label>
-            <input value="<%= %>" type="text"  name="id_coleccion"><br>
+            <label>Fecha de Creacion:</label>
+            <input value="" type="date"  name="fecha_creacion"><br>
 
-            <label>fecha_creacion:</label>
-            <input value="<%= %>" type="text"  name="fecha_creacion"><br>
+            <label>Titulo:</label>
+            <input value="" type="text"  name="titulo"><br>
 
-            <label>titulo:</label>
-            <input value="<%= %>" type="text"  name="titulo"><br>
+            <label>Descripcion:</label>
+            <input value="" type="text"  name="descripcion"><br>
 
-            <label>descripcion:</label>
-            <input value="<%= %>" type="text"  name="descripcion"><br>
+            <label>Id de la Epoca:</label>
+            <input value="" type="number"  name="idEpoca"><br>
 
-            <label>idEpoca:</label>
-            <input value="<%= %>" type="text"  name="idEpoca"><br>
+            <label>Id del Origen:</label>
+            <input value="" type="number"  name="idOrigen"><br>
 
-            <label>idOrigen:</label>
-            <input value="<%= %>" type="text"  name="idOrigen"><br>
+            <label>Id del tipo:</label>
+            <input value="" type="number"  name="idTipo"><br>
+            
+            <label>Estatus:</label>
+            <input value="" type="number"  name="estatus"><br>
 
-            <label>idTipo:</label>
-            <input value="<%= %>" type="text"  name="idTipo"><br>
-
-            <input type="submit" value="Modificar">
+            <input type="submit" value="Registrar">
 
         </form>
         <button onclick="window.location.href = '<%= request.getContextPath()%>/listarObjeto'">Regresar al menu anterior</button><br>

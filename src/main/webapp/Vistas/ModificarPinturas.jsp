@@ -21,15 +21,15 @@
         <h1>MODIFICAR PINTURA</h1>
         <form action="<%= request.getContextPath()%>/modificarPinturas" method="POST">
 
-            <input value="<%= objeto.getIdObraDeArte()%>" type="text"  name="idObraDeArte" hidden>
+            <input value="<%= objeto.getIdObraDeArte()%>" type="number"  name="idObraDeArte" hidden>
 
-            <label>Tipo_pintura:</label>
+            <label>Tipo de pintura:</label>
             <input value="<%= objeto.getTipo_pintura()%>" type="text"  name="tipo_pintura"><br>
 
-            <label>Material:</label>
+            <label>Material: </label>
             <input value="<%= objeto.getMaterial()%>" type="text"  name="material"><br>
 
-            <label>Estilo:</label>
+            <label>Estilo: </label>
             <input value="<%= objeto.getEstilo()%>" type="text"  name="estilo"><br>
 
            <input type="submit" value="Modificar">

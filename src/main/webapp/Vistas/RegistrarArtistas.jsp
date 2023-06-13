@@ -18,28 +18,31 @@
     <body>
         <h1>Registrar Artistas</h1>
  <form action="<%= request.getContextPath()%>/modificarArtistas" method="POST">
+        <label>Nombre del Artista: </label>
+        <input value="" type="text"  name="nombre"><br>
         
-        <input value="<%= %>" type="text"  name="nombre" hidden>
+        <label>Fecha de Nacimiento: </label>
+        <input value="" type="date"  name="fecha_nacimiento"><br>
         
-        <label>Fecha de Nacimiento:</label>
-        <input value="<%= %>" type="text"  name="fecha_nacimiento"><br>
+        <label>Fecha de Fallecimiento: </label>
+        <input value="" type="date"  name="fecha_fallecimiento"><br>
         
-        <label>Fecha de Fallecimiento:</label>
-        <input value="<%= %>" type="text"  name="fecha_fallecimiento"><br>
+        <label>País de Origen: </label>
+        <input value="" type="text"  name="pais_origen"><br>
         
-        <label>País de Origen:</label>
-        <input value="<%= %>" type="text"  name="pais_origen"><br>
+        <label>Época: </label>
+        <input value="" type="text"  name="epoca"hidden>
         
-        <label>Época:</label>
-        <input value="<%= %>" type="text"  name="epoca"hidden>
+        <label>Estilo: </label>
+        <input value="" type="text"  name="estilo"><br>
         
-        <label>Estilo:</label>
-        <input value="<%= %>" type="text"  name="estilo"><br>
+        <label>Descripción: </label>
+        <input value="" type="text"  name="descripcion"><br>
         
-        <label>Descripción:</label>
-        <input value="<%= %>" type="text"  name="descripcion"><br>
+        <label>Estatus: </label>
+        <input value="" type="number"  name="estatus"><br>
         
-        <input type="submit" value="Modificar">
+        <input type="submit" value="Registrar">
     </form>
         <button onclick="window.location.href = '<%= request.getContextPath()%>/listarArtistas'">Regresar al menu anterior</button><br>
 </body>

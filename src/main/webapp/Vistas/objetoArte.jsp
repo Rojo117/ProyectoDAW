@@ -21,7 +21,7 @@
     </head>
     <body>
         <h1>Menu Objeto de arte</h1>
-        <button onclick="window.location.href='RegistrarObjeto.jsp'">Registrar Objeto de Arte</button>
+        <button onclick="window.location.href='RegistrarObjetoDeArte.jsp'">Registrar Objeto de Arte</button>
         <table>
             <tr>
                 <th>idObraDeArte</th>
