@@ -17,6 +17,21 @@
     </head>
     <body>
         <h1>Registrar Exposiciones</h1>
+        <form action="<%= request.getContextPath()%>/modificarExposiciones" method="POST">
+       
+        <input value="<%= %>" type="text"  name="idExposicion"hidden>
+        
+        <label>Nombre:</label>
+        <input value="<%= %>" type="text" name="nombre"><br>
+        
+        <label>Fecha de Inicio:</label>
+        <input value="<%= %>" type="text"  name="fecha_inicio"><br>
+        
+        <label>Fecha de Fin:</label>
+        <input value="<%= %>" type="text"  name="fecha_fin"><br>
+             
+        <input type="submit" value="Modificar">
+    </form>
+        <button onclick="window.location.href = '<%= request.getContextPath()%>/listarExposiciones'">Regresar al menu anterior</button><br>
     </body>
-    <button onclick="window.location.href='Exposiciones.jsp'">Regresar</button>
 </html>

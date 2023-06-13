@@ -16,6 +16,26 @@
     </head>
     <body>
         <h1>Registrar Escultura</h1>
+<form action="<%= request.getContextPath()%>/modificarEsculturas" method="POST">
+
+            <input value="<%= %>" type="text"  name="idObraDeArte" hidden>
+
+            <label>material:</label>
+            <input value="<%= %>" type="text"  name="material"><br>
+
+            <label>altura:</label>
+            <input value="<%= %>" type="text"  name="altura">
+
+            <label>Peso:</label>
+            <input value="<%= %>" type="text"  name="peso"><br>
+
+            <label>Estilo:</label>
+            <input value="<%= %>" type="text"  name="estilo"><br>
+
+            <input type="submit" value="Modificar">
+
+        </form>
+        <button onclick="window.location.href = '<%= request.getContextPath()%>/listarEscultura'">Regresar al menu anterior</button><br>
+
     </body>
-    <button onclick="window.location.href='Esculturas.jsp'">Regresar</button>
 </html>

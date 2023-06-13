@@ -17,6 +17,23 @@
     </head>
     <body>
         <h1>Registrar Coleccion Permanente</h1>
+        <form action="<%= request.getContextPath()%>/modificarColeccionPermanente" method="POST">
+
+             <input value="<%=%>" type="text"  name="idObraDeArte" hidden>
+
+            <label>fecha_adquisicion</label>
+            <input value="<%=%>" type="text"  name="fecha_adquisicion"><br>
+
+            <label>estado</label>  
+            <input value="<%=%>" type="text"  name="estado">
+
+            <label>costo</label>
+            <input value="<%=%>" type="text"  name="costo"><br>
+
+            <input type="submit" value="Modificar">
+
+        </form>
+        <button onclick="window.location.href = '<%= request.getContextPath()%>/listarColeccionPermanente'">Regresar al menu anterior</button><br>
+
     </body>
-    <button onclick="window.location.href='ColeccionPermanente.jsp'">Regresar</button>
 </html>

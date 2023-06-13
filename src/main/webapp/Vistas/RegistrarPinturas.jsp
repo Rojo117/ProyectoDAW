@@ -17,6 +17,23 @@
     </head>
     <body>
         <h1>Registrar Pintura</h1>
+       <form action="<%= request.getContextPath()%>/modificarPinturas" method="POST">
+
+            <input value="<%=%>" type="text"  name="idObraDeArte" hidden>
+
+            <label>Tipo_pintura:</label>
+            <input value="<%=%>"  type="text"  name="tipo_pintura"><br>
+
+            <label>Material:</label>
+            <input value="<%=%>"  type="text"  name="material"><br>
+
+            <label>Estilo:</label>
+            <input value="<%=%>"  type="text"  name="estilo"><br>
+
+           <input type="submit" value="Modificar">
+
+        </form>
+        <button onclick="window.location.href = '<%= request.getContextPath()%>/listarPintura'">Regresar al menu anterior</button><br>
+
     </body>
-    <button onclick="window.location.href='Pinturas.jsp'">Regresar</button>
 </html>
