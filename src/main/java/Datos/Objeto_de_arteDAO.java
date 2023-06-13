@@ -128,19 +128,20 @@ public class Objeto_de_arteDAO {
 
     public boolean Registrar(objeto_de_arte objeto) {
         try {
-            ps = con.prepareStatement("INSERT INTO objeto_de_arte (idobradearte,nombreobra,artista,id_coleccion,fecha_creacion,titulo,descripcion,idepoca,idorigen,idtipo,estatus) VALUES (?,?,?,?,?,?,?,?,?,?,?) ");
-            ps.setInt(10, objeto.getIdObraDeArte());
-            ps.setString(1, objeto.getNombreObra());
-            ps.setString(2, objeto.getArtista());
-            ps.setInt(3, objeto.getId_coleccion());
-            ps.setDate(4, objeto.getFecha_creacion());
-            ps.setString(5, objeto.getTitulo());
-            ps.setString(6, objeto.getDescripcion());
-            ps.setInt(7, objeto.getIdEpoca());
-            ps.setInt(8, objeto.getIdOrigen());
-            ps.setInt(9, objeto.getIdTipo());
+            ps = con.prepareStatement("INSERT INTO objeto_de_arte (idobradearte,nombreobra,artista,id_coleccion,fecha_creacion,titulo,descripcion,idepoca,idorigen,idtipo,estatus) VALUES (?,?,?,?,?,?,?,?,?,?,?) ");     
+           ps.setInt(1, objeto.getIdObraDeArte());
+            ps.setString(2, objeto.getNombreObra());
+            ps.setString(3, objeto.getArtista());
+            ps.setInt(4, objeto.getId_coleccion());
+            ps.setDate(5, objeto.getFecha_creacion());
+            ps.setString(6, objeto.getTitulo());
+            ps.setString(7, objeto.getDescripcion());
+            ps.setInt(8, objeto.getIdEpoca());
+            ps.setInt(9, objeto.getIdOrigen());
+            ps.setInt(10, objeto.getIdTipo());     
+            ps.setInt(11,1);
             
-            return ps.executeUpdate()>0;
+            return ps.execute();
         } catch (SQLException e) {
              e.printStackTrace();
             return false;

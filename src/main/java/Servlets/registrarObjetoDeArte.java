@@ -7,7 +7,6 @@ package Servlets;
 import Datos.Objeto_de_arteDAO;
 import Modelos.objeto_de_arte;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

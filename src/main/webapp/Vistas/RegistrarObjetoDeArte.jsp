@@ -20,13 +20,16 @@
         <h1>Registrar objeto</h1>
  <form action="<%= request.getContextPath()%>/registrarObjetoDeArte" method="POST">
 
+            <label>ID de la obra: </label>
+            <input value="" type="number"  name="idObraDeArte"><br>
+     
             <label>Nombre de Obra:</label>
             <input value="" type="text"  name="nombreObra"><br>
 
             <label>Nombre del artista:</label>
             <input value="" type="text"  name="artista"><br>
 
-            <label>Id coleccion::</label>
+            <label>Id coleccion:</label>
             <input value="" type="number"  name="id_coleccion"><br>
 
             <label>Fecha de Creacion:</label>
