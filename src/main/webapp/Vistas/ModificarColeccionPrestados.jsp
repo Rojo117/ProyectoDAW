@@ -15,7 +15,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Modificar Coleccion Temporal</title>
     </head>
     <body>
         <h1>MODIFICAR COLECCION PRESTADOS</h1>

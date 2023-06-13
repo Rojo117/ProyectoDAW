@@ -14,14 +14,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Registrar objeto</title>
     </head>
     <body>
         <h1>Registrar objeto</h1>
- <form action="<%= request.getContextPath()%>/modificarObjetoDeArte" method="POST">
-
-     <label>Id de la obra:</label>
-            <input value="" type="number"  name="idObraDeArte"><br>
+ <form action="<%= request.getContextPath()%>/registrarObjetoDeArte" method="POST">
 
             <label>Nombre de Obra:</label>
             <input value="" type="text"  name="nombreObra"><br>

@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Registrar Coleccion Prestados</title>
     </head>
     <body>
         <h1>Registrar Coleccion Prestados</h1>
