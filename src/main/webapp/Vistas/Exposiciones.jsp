@@ -44,7 +44,6 @@
                 <th><%= objeto.getEstatus()%></th>
                 <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getIdExposicion()%>&Seccion=Exposiciones'">Eliminar</button> </th>
                 <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Informacion?id=<%=objeto.getIdExposicion()%>&Seccion=Exposiciones'">Modificar</button> </th>
-
             </tr>
             <%
                     }
