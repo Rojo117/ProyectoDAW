@@ -75,13 +75,13 @@ public class EsculturasDAO {
     }
 
     public escultura leer(int id7) {
-try {
+        try {
             escultura = new escultura();
             ps = con.prepareStatement("SELECT * FROM escultura WHERE idObraDeArte=?");
             ps.setInt(1, id7);
             rs = ps.executeQuery();
             if (rs.next()) {
-             escultura.setIdObraDeArte(rs.getInt("idObraDeArte"));
+                escultura.setIdObraDeArte(rs.getInt("idObraDeArte"));
                 escultura.setMaterial(rs.getString("material"));
                 escultura.setAltura(rs.getInt("altura"));
                 escultura.setPeso(rs.getInt("peso"));
@@ -96,10 +96,11 @@ try {
         } finally {
             Conexion.close(rs);
             Conexion.close(ps);
-        }    }
+        }
+    }
 
     public boolean Eliminar(int id7) {
-try {
+        try {
             ps = con.prepareStatement("UPDATE escultura SET estatus=? WHERE idobradearte=?");
             ps.setInt(1, 0);
             ps.setInt(2, id7);
@@ -109,5 +110,44 @@ try {
             return false;
         } finally {
             Conexion.close(ps);
-        }    }
+        }
+    }
+
+    public boolean Registrar(escultura objeto) {
+        try {
+            ps = con.prepareStatement("INSERT INTO escultura (idobradearte,material,altura,peso,estilo,estatus) VALUES(?,?,?,?,?,?)");
+            ps.setInt(1, objeto.getIdObraDeArte());
+            ps.setString(2, objeto.getMaterial());
+            ps.setInt(3, objeto.getAltura());
+            ps.setInt(4, objeto.getPeso());
+            ps.setString(5, objeto.getEstilo());
+            ps.setInt(6, 1);
+
+            return ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }
+    }
+
+    public boolean comprobar(int idObraDeArte) {
+        try {
+            ps = con.prepareStatement("SELECT * FROM escultura WHERE idobradearte=?");
+            ps.setInt(1, idObraDeArte);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }
+    }
 }

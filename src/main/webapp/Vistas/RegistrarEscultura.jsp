@@ -16,7 +16,7 @@
     </head>
     <body>
         <h1>Registrar Escultura</h1>
-<form action="<%= request.getContextPath()%>/modificarEsculturas" method="POST">
+<form action="<%= request.getContextPath()%>/registrarEscultura" method="POST">
             <label>Id de la Obra:</label>
             <input value="" type="number"  name="idObraDeArte"><br>
 

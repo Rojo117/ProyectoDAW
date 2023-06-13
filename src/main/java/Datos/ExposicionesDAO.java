@@ -104,5 +104,21 @@ public class ExposicionesDAO {
              Conexion.close(ps);
         }
     }
+
+    public boolean Registrar(Exposiciones objeto) {
+        try {
+            ps = con.prepareStatement("INSERT INTO exposiciones (nombre,fecha_inicio,fecha_fin,estatus) VALUES(?,?,?,?)");
+            ps.setString(1, objeto.getNombre());
+            ps.setDate(2, objeto.getFecha_inicio());
+            ps.setDate(3, objeto.getFecha_fin());
+            ps.setInt(4, 1);
+
+            return ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }    }
     }
 

@@ -17,11 +17,8 @@
     </head>
     <body>
         <h1>Registrar Exposiciones</h1>
-        <form action="<%= request.getContextPath()%>/modificarExposiciones" method="POST">
-       
-        <label>Id de la Exposicion:</label>
-        <input value="" type="number"  name="idExposicion"><br>
-        
+        <form action="<%= request.getContextPath()%>/registrarExposiciones" method="POST">
+
         <label>Nombre de la Exposicion: </label>
         <input value="" type="text" name="nombre"><br>
         
@@ -31,8 +28,6 @@
         <label>Fecha de Fin: </label>
         <input value="" type="date"  name="fecha_fin"><br>
         
-        <label>Estatus: </label>
-            <input value="" type="number"  name="estatus"><br>
              
         <input type="submit" value="Modificar">
     </form>
