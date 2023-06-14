@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 public class ExposicionObjeto implements Serializable {
 int idExposicion;
-	int idObraDeArte;
+int idObraDeArte;
     public ExposicionObjeto() {
     }
 

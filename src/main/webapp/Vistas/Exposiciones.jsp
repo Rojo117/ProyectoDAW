@@ -17,11 +17,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="index.css">
         <title>Exposiciones</title>
     </head>
     <body>
         <h1>Exposiciones</h1>
-        <button onclick="window.location.href='RegistrarExposiciones.jsp'">Registrar Exposion</button>
+        <button onclick="window.location.href='RegistrarExposiciones.jsp'">Registrar Exposicion</button>
         <table>
             <tr>
                 <th>idExposicion</th>
