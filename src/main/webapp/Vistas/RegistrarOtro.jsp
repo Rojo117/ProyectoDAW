@@ -20,7 +20,7 @@
         <h1>Registrar Otro</h1>
         <form action="<%= request.getContextPath()%>/registrarOtros" method="POST">
             <label>ID de la Obra:</label>
-            <input value="" type="number"  name="idObraDeArte"><br>
+            <input value="" type="text"  name="idObraDeArte"><br>
 
             <label>Tipo: </label>
             <input value="" type="text"  name="tipo"><br>
@@ -31,7 +31,7 @@
             <label>Estatus: </label>
             <input value="" type="number"  name="estatus"><br>
 
-            <input type="submit" value="Registar">
+            <input type="submit" value="Registrar">
 
         </form>
         <button onclick="window.location.href = '<%= request.getContextPath()%>/listarOtro'">Regresar al menu anterior</button><br>
