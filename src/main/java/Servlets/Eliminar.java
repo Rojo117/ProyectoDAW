@@ -27,11 +27,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "Eliminar", urlPatterns = {"/Eliminar"})
 public class Eliminar extends HttpServlet {
+    String msg=null;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
         boolean eliminado;
+        
         String Seccion = request.getParameter("Seccion");
         switch (Seccion) {
             case "ObraDeArte":
@@ -39,6 +41,7 @@ public class Eliminar extends HttpServlet {
                 Objeto_de_arteDAO acceso = new Objeto_de_arteDAO();
                 eliminado = acceso.Eliminar(id);
                 comprobar(eliminado);
+                request.getSession().setAttribute("msg", msg);
                 response.sendRedirect(request.getContextPath() + "/listarObjeto");
                 break;
             case "Artistas":
@@ -46,6 +49,7 @@ public class Eliminar extends HttpServlet {
                 ArtistasDAO acceso2 = new ArtistasDAO();
                 eliminado = acceso2.Eliminar(id2);
                 comprobar(eliminado);
+                request.getSession().setAttribute("msg", msg);
                 response.sendRedirect(request.getContextPath() + "/listarArtistas");
                 break;
             case "Exposiciones":
@@ -53,27 +57,31 @@ public class Eliminar extends HttpServlet {
                 ExposicionesDAO acceso3 = new ExposicionesDAO();
                 eliminado = acceso3.Eliminar(id3);
                 comprobar(eliminado);
+                request.getSession().setAttribute("msg", msg);
                 response.sendRedirect(request.getContextPath() + "/listarExposiciones");
                 break;
                 case "ColeccionOtros":
                 int id4 = Integer.parseInt(request.getParameter("id"));
                 Otras_ColeccionesDAO acceso4 = new Otras_ColeccionesDAO();
                 eliminado = acceso4.Eliminar(id4);
-                comprobar(eliminado);     
+                comprobar(eliminado); 
+                request.getSession().setAttribute("msg", msg);
                 response.sendRedirect(request.getContextPath() + "/listarColeccionOtros");
                 break;
             case "ColeccionPermanente":             
                 int id5 = Integer.parseInt(request.getParameter("id"));
                 Coleccion_permanenteDAO acceso5 = new Coleccion_permanenteDAO();
                 eliminado = acceso5.Eliminar(id5);
-                comprobar(eliminado); 
+                comprobar(eliminado);
+                request.getSession().setAttribute("msg", msg);
                 response.sendRedirect(request.getContextPath() + "/listarColeccionPermanente");
                 break;
             case "ColeccionPrestados":
                 int id6 = Integer.parseInt(request.getParameter("id"));
                 PrestadosDAO acceso6 = new PrestadosDAO();
                  eliminado = acceso6.Eliminar(id6);
-                comprobar(eliminado); 
+                comprobar(eliminado);
+                request.getSession().setAttribute("msg", msg);
                 response.sendRedirect(request.getContextPath() + "/listarColeccionTemporal");
 
                 break;
@@ -82,6 +90,7 @@ public class Eliminar extends HttpServlet {
                 EsculturasDAO acceso7 = new EsculturasDAO();
                 eliminado = acceso7.Eliminar(id7);
                 comprobar(eliminado);
+                request.getSession().setAttribute("msg", msg);
                 response.sendRedirect(request.getContextPath() + "/listarEscultura");
 
                 break;
@@ -90,6 +99,7 @@ public class Eliminar extends HttpServlet {
                 EstatuasDAO acceso8 = new EstatuasDAO();
                 eliminado = acceso8.Eliminar(id8);
                 comprobar(eliminado);
+                request.getSession().setAttribute("msg", msg);
                 response.sendRedirect(request.getContextPath() + "/listarEstatua");
 
                 break;
@@ -98,6 +108,7 @@ public class Eliminar extends HttpServlet {
                 OtrosDAO acceso9 = new OtrosDAO();
                 eliminado = acceso9.Eliminar(id9);
                 comprobar(eliminado);
+                request.getSession().setAttribute("msg", msg);
                 response.sendRedirect(request.getContextPath() + "/listarOtro");
                 
                 break;
@@ -105,9 +116,10 @@ public class Eliminar extends HttpServlet {
                 int id10 = Integer.parseInt(request.getParameter("id"));
                 PinturaDAO acceso10 = new PinturaDAO();
                 eliminado = acceso10.Eliminar(id10);
-                comprobar(eliminado);
+                comprobar(eliminado); 
+                request.getSession().setAttribute("msg", msg);
                 response.sendRedirect(request.getContextPath() + "/listarPintura");
-
+                   
                 break;
 
             default:
@@ -118,14 +130,16 @@ public class Eliminar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        doGet(request,response);
     }
 
     protected void comprobar(boolean eliminado) {
+  
         if (eliminado) {
-            System.out.println("Eliminado correctamente");
+              msg = "<script>alert('Eliminado Correctamente')</script>";
 
         } else {
-            System.out.println("No se pudo eliminar");
+             msg = "<script>alert('No se pudo eliminar')</script>";
         }
     }
 

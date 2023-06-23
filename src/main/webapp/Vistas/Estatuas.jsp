@@ -13,6 +13,14 @@
     new verificacion().IsConnected(request, response,"");
     List<estatuas> lista = (List<estatuas>) request.getSession().getAttribute("objeto");
 %>
+<%
+            String msg = "";
+            if (request.getSession().getAttribute("msg") != null) {
+                msg = request.getSession().getAttribute("msg").toString();
+                out.print(msg);
+                request.getSession().removeAttribute("msg");
+            }
+        %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -41,7 +49,7 @@
                 <th><%= objeto.getAltura()%></th>
                 <th><%= objeto.getPeso()%> </th>
                 <th><%= objeto.getRepresentacion()%></th>
-               <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getIdObraDeArte()%>&Seccion=Estatuas'">Eliminar</button> </th>
+              <th> <button onclick="window.location.href='<%= request.getContextPath() %>/Vistas/Confirmar.jsp?id=<%= objeto.getIdObraDeArte() %>&seccion=4'">Eliminar</button> </th>
                 <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Informacion?id=<%=objeto.getIdObraDeArte()%>&Seccion=Estatuas'">Modificar</button> </th>
             </tr>
             <%

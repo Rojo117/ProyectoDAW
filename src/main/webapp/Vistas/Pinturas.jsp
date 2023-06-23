@@ -13,6 +13,14 @@
     new verificacion().IsConnected(request, response,"");
     List<pintura> lista = (List<pintura>) request.getSession().getAttribute("objeto");
 %>
+<%
+            String msg = "";
+            if (request.getSession().getAttribute("msg") != null) {
+                msg = request.getSession().getAttribute("msg").toString();
+                out.print(msg);
+                request.getSession().removeAttribute("msg");
+            }
+        %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -41,7 +49,7 @@
                 <th><%= objeto.getTipo_pintura()%></th>
                 <th><%= objeto.getMaterial()%> </th>
                 <th><%= objeto.getEstilo()%></th>
-              <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getIdObraDeArte()%>&Seccion=Pinturas'">Eliminar</button> </th>
+              <th> <button onclick="window.location.href='<%= request.getContextPath() %>/Vistas/Confirmar.jsp?id=<%= objeto.getIdObraDeArte() %>&seccion=1'">Eliminar</button> </th>
                 <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Informacion?id=<%=objeto.getIdObraDeArte()%>&Seccion=Pinturas'">Modificar</button> </th>
             </tr>
             <%
