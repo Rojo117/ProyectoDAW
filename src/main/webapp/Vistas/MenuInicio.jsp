@@ -26,5 +26,6 @@
     <button onclick="window.location.href='<%= request.getContextPath()%>/listarArtistas'">Artistas</button><br>
     <button onclick="window.location.href='Colecciones.jsp'">Colecciones</button><br>
     <button onclick="window.location.href='<%= request.getContextPath()%>/listarExposiciones'">Exposiciones</button><br>
+    <button onclick="window.location.href='<%= request.getContextPath()%>/Logout'">Cerrar Sesion</button><br>
 </body>
 </html>
