@@ -39,7 +39,7 @@ String msg = null;
         objeto.setNombre_contacto(request.getParameter("nombre_contacto"));//string
         Otras_ColeccionesDAO access = new Otras_ColeccionesDAO();
         boolean modificado = access.modificar(objeto);
-        if (modificado) {
+        if (!modificado) {
             msg = "<script>alert('Modificado Correctamente')</script>";
 
         } else {

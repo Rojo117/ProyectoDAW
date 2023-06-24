@@ -43,7 +43,7 @@ String msg = null;
         objeto.setIdTipo(Integer.parseInt(request.getParameter("idTipo")));//int
         Objeto_de_arteDAO access = new Objeto_de_arteDAO();
                  boolean registrado = access.Registrar(objeto);
-         if (registrado) {
+         if (!registrado) {
             msg = "<script>alert('Registrado Correctamente')</script>";
 
         } else {

@@ -43,7 +43,7 @@ public class registrarArtistas extends HttpServlet {
         objeto.setDescripcion(request.getParameter("descripcion"));//string
         ArtistasDAO access = new ArtistasDAO();
         boolean registrado = access.Registrar(objeto);
-        if (registrado) {
+        if (!registrado) {
             msg = "<script>alert('Registrado Correctamente')</script>";
 
         } else {
