@@ -142,14 +142,6 @@ public class Informacion extends HttpServlet {
             throws ServletException, IOException {
     }
 
-    protected void comprobar(boolean eliminado) {
-        if (eliminado) {
-            System.out.println("Modificado correctamente");
-
-        } else {
-            System.out.println("No se pudo modificar");
-        }
-    }
 
     @Override
     public String getServletInfo() {

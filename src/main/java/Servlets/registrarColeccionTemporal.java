@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "registrarColeccionTemporal", urlPatterns = {"/registrarColeccionTemporal"})
 public class registrarColeccionTemporal extends HttpServlet {
-
+String msg = null;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -43,11 +43,12 @@ public class registrarColeccionTemporal extends HttpServlet {
         }else{
          boolean registrado = access.Registrar(objeto);
          if (registrado) {
-            System.out.println("Registrado correctamente");
+            msg = "<script>alert('Registrado Correctamente')</script>";
 
         } else {
-            System.out.println("No se pudo Registrar");
+            msg = "<script>alert('No se pudo Registrar - vuelve a intentarlo')</script>";
         }
+        request.getSession().setAttribute("msg", msg);
         }
        
          response.sendRedirect(request.getContextPath()+"/listarColeccionTemporal");

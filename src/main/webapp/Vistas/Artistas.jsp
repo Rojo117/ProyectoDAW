@@ -13,6 +13,14 @@
     new verificacion().IsConnected(request, response,"");
     List<artistas> lista = (List<artistas>) request.getSession().getAttribute("objeto");
 %>
+<%
+            String msg = "";
+            if (request.getSession().getAttribute("msg") != null) {
+                msg = request.getSession().getAttribute("msg").toString();
+                out.print(msg);
+                request.getSession().removeAttribute("msg");
+            }
+        %>
 <html
 <html>
     <head>
@@ -48,7 +56,7 @@
                 <th><%= objeto.getEpoca()%></th>
                 <th><%= objeto.getEstilo()%></th>
                 <th><%= objeto.getDescripcion()%></th>
-                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getNombre()%>&Seccion=Artistas'">Eliminar</button> </th>
+                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Vistas/Confirmar.jsp?id=<%=objeto.getNombre()%>&seccion=9'">Eliminar</button> </th>
                 <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Informacion?id=<%=objeto.getNombre()%>&Seccion=Artistas'">Modificar</button> </th>
             </tr>
             <%

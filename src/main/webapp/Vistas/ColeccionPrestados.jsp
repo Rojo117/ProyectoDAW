@@ -13,6 +13,14 @@
     new verificacion().IsConnected(request, response,"");
     List<prestados> lista = (List<prestados>) request.getSession().getAttribute("objeto");
 %>
+<%
+            String msg = "";
+            if (request.getSession().getAttribute("msg") != null) {
+                msg = request.getSession().getAttribute("msg").toString();
+                out.print(msg);
+                request.getSession().removeAttribute("msg");
+            }
+        %>
 <html
 <html>
     <head>
@@ -43,7 +51,7 @@
                 <th><%= objeto.getPrestamista()%></th>
                 <th><%= objeto.getFecha_inicio()%> </th>
                 <th><%= objeto.getFecha_fin()%></th>
-                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getIdObraDeArte()%>&Seccion=ColeccionPrestados'">Eliminar</button> </th>
+                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Vistas/Confirmar.jsp?id=<%=objeto.getIdObraDeArte()%>&seccion=8'">Eliminar</button> </th>
                 <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Informacion?id=<%=objeto.getIdObraDeArte()%>&Seccion=ColeccionPrestados'">Modificar</button> </th>
             </tr>
             <%

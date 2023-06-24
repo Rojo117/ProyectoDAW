@@ -112,8 +112,8 @@ public class ExposicionesDAO {
             ps.setDate(2, objeto.getFecha_inicio());
             ps.setDate(3, objeto.getFecha_fin());
             ps.setInt(4, 1);
-
-            return ps.execute();
+ps.execute();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;

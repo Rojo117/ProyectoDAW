@@ -19,11 +19,11 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "registrarColeccionOtros", urlPatterns = {"/registrarColeccionOtros"})
 public class registrarColeccionOtros extends HttpServlet {
-
+String msg = null;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+
     }
 
     @Override
@@ -38,24 +38,22 @@ public class registrarColeccionOtros extends HttpServlet {
         objeto.setTelefono(request.getParameter("telefono"));//string
         objeto.setNombre_contacto(request.getParameter("nombre_contacto"));//string
         Otras_ColeccionesDAO access = new Otras_ColeccionesDAO();
-                 boolean existe = access.comprobar(objeto.getIdObraDeArte());
+        boolean existe = access.comprobar(objeto.getIdObraDeArte());
         if (existe) {
             System.out.println("Esta coleccion de arte ya existe");
-            
-        }else{
-         boolean registrado = access.Registrar(objeto);
-         if (registrado) {
-            System.out.println("Registrado correctamente");
 
         } else {
-            System.out.println("No se pudo Registrar");
+            boolean registrado = access.Registrar(objeto);
+            if (registrado) {
+                msg = "<script>alert('Registrado Correctamente')</script>";
+
+            } else {
+                msg = "<script>alert('No se pudo Registrar - vuelve a intentarlo')</script>";
+            }
+            request.getSession().setAttribute("msg", msg);
         }
-        }
-       
-         response.sendRedirect(request.getContextPath()+"/listarColeccionOtros");
+
+        response.sendRedirect(request.getContextPath() + "/listarColeccionOtros");
     }
 
-    }
-
-
-
+}

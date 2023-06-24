@@ -22,16 +22,18 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "registrarArtistas", urlPatterns = {"/registrarArtistas"})
 public class registrarArtistas extends HttpServlet {
 
+    String msg = null;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         artistas objeto = new artistas();
+        artistas objeto = new artistas();
         objeto.setNombre(request.getParameter("nombre"));//string
         objeto.setFecha_nacimiento(Date.valueOf(request.getParameter("fecha_nacimiento")));//date
         objeto.setFecha_fallecimiento(Date.valueOf(request.getParameter("fecha_fallecimiento")));//date
@@ -40,19 +42,17 @@ public class registrarArtistas extends HttpServlet {
         objeto.setEstilo(request.getParameter("estilo"));//string
         objeto.setDescripcion(request.getParameter("descripcion"));//string
         ArtistasDAO access = new ArtistasDAO();
-                 boolean registrado = access.Registrar(objeto);
-         if (registrado) {
-            System.out.println("Registrado correctamente");
+        boolean registrado = access.Registrar(objeto);
+        if (registrado) {
+            msg = "<script>alert('Registrado Correctamente')</script>";
 
         } else {
-            System.out.println("No se pudo Registrar");
+            msg = "<script>alert('No se pudo Registrar - vuelve a intentarlo')</script>";
         }
-        
-       
-         response.sendRedirect(request.getContextPath()+"/listarArtistas");
+        request.getSession().setAttribute("msg", msg);
 
+        response.sendRedirect(request.getContextPath() + "/listarArtistas");
 
     }
-
 
 }

@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "modificarColeccionPrestados", urlPatterns = {"/modificarColeccionPrestados"})
 public class modificarColeccionPrestados extends HttpServlet {
-
+String msg = null;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -36,12 +36,13 @@ public class modificarColeccionPrestados extends HttpServlet {
         objeto.setFecha_fin(Date.valueOf(request.getParameter("fecha_fin")));//date
         PrestadosDAO access = new PrestadosDAO();
         boolean modificado = access.modificar(objeto);
-                 if (modificado) {
-            System.out.println("Modificado correctamente");
+         if (modificado) {
+            msg = "<script>alert('Modificado Correctamente')</script>";
 
         } else {
-            System.out.println("No se pudo modificar");
+            msg = "<script>alert('No se pudo modificar')</script>";
         }
+        request.getSession().setAttribute("msg", msg);
          response.sendRedirect(request.getContextPath()+"/Informacion?id="+objeto.getIdObraDeArte()+"&Seccion=ColeccionPrestados");
     }
 

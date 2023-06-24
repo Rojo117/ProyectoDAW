@@ -13,6 +13,14 @@
     new verificacion().IsConnected(request, response, "");
     List<coleccion_permanente> lista = (List<coleccion_permanente>) request.getSession().getAttribute("objeto");
 %>
+<%
+            String msg = "";
+            if (request.getSession().getAttribute("msg") != null) {
+                msg = request.getSession().getAttribute("msg").toString();
+                out.print(msg);
+                request.getSession().removeAttribute("msg");
+            }
+        %>
 <html
     <html>
     <head>
@@ -44,7 +52,7 @@
                 <th><%= objeto.getFecha_adquisicion()%></th>
                 <th><%= objeto.getEstado()%></th>
                 <th><%= objeto.getCosto()%></th>
-                <th> <button onclick="window.location.href = '<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getIdObraDeArte()%>&Seccion=ColeccionPermanente'">Eliminar</button> </th>
+                <th> <button onclick="window.location.href = '<%= request.getContextPath()%>/Vistas/Confirmar.jsp?id=<%=objeto.getIdObraDeArte()%>&seccion=7'">Eliminar</button> </th>
                 <th> <button onclick="window.location.href = '<%= request.getContextPath()%>/Informacion?id=<%=objeto.getIdObraDeArte()%>&Seccion=ColeccionPermanente'">Modificar</button> </th>
             </tr>
             <%

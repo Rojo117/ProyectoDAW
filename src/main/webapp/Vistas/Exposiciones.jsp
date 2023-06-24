@@ -13,6 +13,14 @@
     new verificacion().IsConnected(request, response,"");
     List<Exposiciones> lista = (List<Exposiciones>) request.getSession().getAttribute("objeto");
 %>
+<%
+            String msg = "";
+            if (request.getSession().getAttribute("msg") != null) {
+                msg = request.getSession().getAttribute("msg").toString();
+                out.print(msg);
+                request.getSession().removeAttribute("msg");
+            }
+        %>
 <html
 <html>
     <head>
@@ -43,7 +51,7 @@
                 <th><%= objeto.getFecha_inicio()%> </th>
                 <th><%= objeto.getFecha_fin()%></th>
                 <th><%= objeto.getEstatus()%></th>
-                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Eliminar?id=<%=objeto.getIdExposicion()%>&Seccion=Exposiciones'">Eliminar</button> </th>
+                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Vistas/Confirmar.jsp?id=<%=objeto.getIdExposicion()%>&seccion=10'">Eliminar</button> </th>
                 <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Informacion?id=<%=objeto.getIdExposicion()%>&Seccion=Exposiciones'">Modificar</button> </th>
             </tr>
             <%

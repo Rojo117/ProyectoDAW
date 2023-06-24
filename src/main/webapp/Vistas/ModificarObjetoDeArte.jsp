@@ -12,6 +12,15 @@
     new verificacion().IsConnected(request, response, "");
     objeto_de_arte objeto = (objeto_de_arte) request.getSession().getAttribute("leer2");
 %>
+<%
+    
+            String msg = "";
+            if (request.getSession().getAttribute("msg") != null) {
+                msg = request.getSession().getAttribute("msg").toString();
+                out.print(msg);
+                request.getSession().removeAttribute("msg");
+            }
+        %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

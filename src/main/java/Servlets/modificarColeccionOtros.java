@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "modificarColeccionOtros", urlPatterns = {"/modificarColeccionOtros"})
 public class modificarColeccionOtros extends HttpServlet {
-
+String msg = null;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -39,13 +39,14 @@ public class modificarColeccionOtros extends HttpServlet {
         objeto.setNombre_contacto(request.getParameter("nombre_contacto"));//string
         Otras_ColeccionesDAO access = new Otras_ColeccionesDAO();
         boolean modificado = access.modificar(objeto);
-                 if (modificado) {
-            System.out.println("Modificado correctamente");
+        if (modificado) {
+            msg = "<script>alert('Modificado Correctamente')</script>";
 
         } else {
-            System.out.println("No se pudo modificar");
+            msg = "<script>alert('No se pudo modificar')</script>";
         }
-         response.sendRedirect(request.getContextPath()+"/Informacion?id="+objeto.getIdObraDeArte()+"&Seccion=ColeccionOtros");
+        request.getSession().setAttribute("msg", msg);
+        response.sendRedirect(request.getContextPath()+"/Informacion?id="+objeto.getIdObraDeArte()+"&Seccion=ColeccionOtros");
     }
 
 }
