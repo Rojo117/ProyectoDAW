@@ -16,11 +16,12 @@ import java.util.List;
  * @author conej
  */
 public class UsuarioDAO {
+
     private Connection con = null;
     private ResultSet rs = null;
-    private PreparedStatement ps= null;
+    private PreparedStatement ps = null;
     private Usuarios user = null;
-    private List<Usuarios>userlist;
+    private List<Usuarios> userlist;
 
     public UsuarioDAO() {
         con = Conexion.getConnection();
@@ -32,13 +33,14 @@ public class UsuarioDAO {
             ps.setString(1, usuario);
             ps.setString(2, pass);
             rs = ps.executeQuery();
-            if (rs.next()) {user=new Usuarios();
-            user.setIdUsuario(rs.getInt("idUsuario"));
-            user.setNombre(rs.getString("nombre"));
-            user.setUsuario(usuario);
-            user.setContra(pass);
-            user.setCorreo(rs.getString("correo"));
-            
+            if (rs.next()) {
+                user = new Usuarios();
+                user.setIdUsuario(rs.getInt("idUsuario"));
+                user.setNombre(rs.getString("nombre"));
+                user.setUsuario(usuario);
+                user.setContra(pass);
+                user.setCorreo(rs.getString("correo"));
+
             }
             return user;
         } catch (SQLException e) {
@@ -47,9 +49,25 @@ public class UsuarioDAO {
         } finally {
             Conexion.close(rs);
             Conexion.close(ps);
-            
+
         }
-        
+
     }
-    
+
+    public boolean registrar(Usuarios newUser) {
+        try {
+            ps = con.prepareStatement("INSERT INTO usuarios(nombre,usuario,contra,correo)VALUES(?,?,?,?)");
+            ps.setString(1, newUser.getNombre());
+            ps.setString(2, newUser.getUsuario());
+            ps.setString(3, newUser.getContra());
+            ps.setString(4, newUser.getCorreo());
+            return ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }
+    }
+
 }

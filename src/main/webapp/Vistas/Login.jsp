@@ -9,6 +9,15 @@
 <!DOCTYPE html>
 <%new verificacion().IsConnected(request,response,"login");
 %>
+<%
+    
+            String msg = "";
+            if (request.getSession().getAttribute("msg") != null) {
+                msg = request.getSession().getAttribute("msg").toString();
+                out.print(msg);
+                request.getSession().removeAttribute("msg");
+            }
+        %>
 
 <html
 <html>
@@ -35,6 +44,8 @@
             </label>
             <input type="password" name="pass">
             <input type="submit" value="login">
+             
         </form>
+            <button onclick="window.location.href='<%= request.getContextPath()%>/Vistas/RegistroUsuarios.jsp'">Crear una cuenta</button><br>
     </body>
 </html>
