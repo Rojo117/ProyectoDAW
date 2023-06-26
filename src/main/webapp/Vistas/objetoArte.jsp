@@ -10,19 +10,19 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-    new verificacion().IsConnected(request, response,"");
+    new verificacion().IsConnected(request, response, "");
     List<objeto_de_arte> lista = (List<objeto_de_arte>) request.getSession().getAttribute("objetos");
 %>
 <%
-            String msg = "";
-            if (request.getSession().getAttribute("msg") != null) {
-                msg = request.getSession().getAttribute("msg").toString();
-                out.print(msg);
-                request.getSession().removeAttribute("msg");
-            }
-        %>
+    String msg = "";
+    if (request.getSession().getAttribute("msg") != null) {
+        msg = request.getSession().getAttribute("msg").toString();
+        out.print(msg);
+        request.getSession().removeAttribute("msg");
+    }
+%>
 <html
-<html>
+    <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="index.css">
@@ -30,7 +30,7 @@
     </head>
     <body>
         <h1>Menu Objeto de arte</h1>
-        <button onclick="window.location.href='RegistrarObjetoDeArte.jsp'">Registrar Objeto de Arte</button>
+        <button onclick="window.location.href = 'RegistrarObjetoDeArte.jsp'">Registrar Objeto de Arte</button>
         <table>
             <tr>
                 <th>idObraDeArte</th>
@@ -45,8 +45,9 @@
                 <th>idTipo</th>
                 <th>Eliminar</th>
                 <th>Modificar</th>
+                <th>Mostrar Información</th>
             </tr>
-<%
+            <%
                 if (lista != null) {
                     for (objeto_de_arte objeto : lista) {
             %>
@@ -61,16 +62,19 @@
                 <th><%= objeto.getIdEpoca()%></th>
                 <th><%= objeto.getIdOrigen()%></th>
                 <th><%= objeto.getIdTipo()%> </th>
-               <th> <button onclick="window.location.href='<%= request.getContextPath() %>/Vistas/Confirmar.jsp?id=<%= objeto.getIdObraDeArte() %>&seccion=5'">Eliminar</button> </th>
-                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Informacion?id=<%=objeto.getIdObraDeArte()%>&Seccion=ObraDeArte'">Modificar</button> </th>
-
+                <th> <button onclick="window.location.href = '<%= request.getContextPath()%>/Vistas/Confirmar.jsp?id=<%= objeto.getIdObraDeArte()%>&seccion=5'">Eliminar</button> </th>
+                <th> <button onclick="window.location.href = '<%= request.getContextPath()%>/Informacion?id=<%=objeto.getIdObraDeArte()%>&Seccion=ObraDeArte'">Modificar</button> </th>
+                <th> 
+                    <button onclick="window.location.href = '<%= request.getContextPath()%>/InformacionCompleta?id=<%=objeto.getIdObraDeArte()%>&coleccion=<%=objeto.getIdTipo()%>'">Ver más</button> 
+                    <button onclick="window.location.href = '<%= request.getContextPath()%>/Vistas/objetoExpo.jsp?id=<%=objeto.getIdObraDeArte()%>'">Agregar a exposición</button> 
+                </th>
             </tr>
             <%
                     }
                 }
             %>
         </table>
-        <button onclick="window.location.href='MenuInicio.jsp'">Regresar</button>
+        <button onclick="window.location.href = 'MenuInicio.jsp'">Regresar</button>
 
     </body>
 </html>
