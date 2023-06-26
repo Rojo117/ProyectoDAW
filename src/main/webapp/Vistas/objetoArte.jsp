@@ -66,7 +66,7 @@
                 <th> <button onclick="window.location.href = '<%= request.getContextPath()%>/Informacion?id=<%=objeto.getIdObraDeArte()%>&Seccion=ObraDeArte'">Modificar</button> </th>
                 <th> 
                     <button onclick="window.location.href = '<%= request.getContextPath()%>/InformacionCompleta?id=<%=objeto.getIdObraDeArte()%>&coleccion=<%=objeto.getIdTipo()%>'">Ver más</button> 
-                    <button onclick="window.location.href = '<%= request.getContextPath()%>/Vistas/objetoExpo.jsp?id=<%=objeto.getIdObraDeArte()%>'">Agregar a exposición</button> 
+                    <button onclick="window.location.href = '<%= request.getContextPath()%>/objetoExpo?id=<%=objeto.getIdObraDeArte()%>'">Agregar a exposición</button> 
                 </th>
             </tr>
             <%

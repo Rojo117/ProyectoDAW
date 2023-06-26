@@ -53,6 +53,7 @@
                 <th><%= objeto.getEstatus()%></th>
                 <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Vistas/Confirmar.jsp?id=<%=objeto.getIdExposicion()%>&seccion=10'">Eliminar</button> </th>
                 <th> <button onclick="window.location.href='<%= request.getContextPath()%>/Informacion?id=<%=objeto.getIdExposicion()%>&Seccion=Exposiciones'">Modificar</button> </th>
+                <th> <button onclick="window.location.href='<%= request.getContextPath()%>/arteExpo?id=<%=objeto.getIdExposicion()%>&expo=<%=objeto.getNombre()%>'">Ver obras</button> </th>
             </tr>
             <%
                     }

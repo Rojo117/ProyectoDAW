@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="index.css">
        <title>Bienvenido</title>
 </head>
-<body>
+<body align="center">
     <h1>Menu de inicio</h1>
     <p>Nombre de usuario conectado: <%= user.getUsuario()%> </p>
     <button onclick="window.location.href='<%= request.getContextPath()%>/listarObjeto'">Objeto de arte</button><br> <!-- CUANDO LE DE CLIC AL BOTON OBTIENE LA RUTA ABSOLUTA DEL PROJECTO Y ENVIA UNA PETICION AL SERVLET listarObjeto -->

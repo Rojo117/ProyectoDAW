@@ -17,18 +17,19 @@ import java.util.List;
  * @author conej
  */
 public class ExposicionesDAO {
+
     private Connection con = null;
     private ResultSet rs = null;
-    private PreparedStatement ps= null;
+    private PreparedStatement ps = null;
     private Exposiciones Exposiciones = null;
-    private List<Exposiciones>Exposicioneslist;
+    private List<Exposiciones> Exposicioneslist;
 
     public ExposicionesDAO() {
         con = Conexion.getConnection();
-}
+    }
 
     public List<Exposiciones> listarTodo() {
-               try {
+        try {
             Exposicioneslist = new ArrayList<>();
             ps = con.prepareStatement("SELECT * FROM exposiciones WHERE estatus=1");
             rs = ps.executeQuery();
@@ -51,7 +52,8 @@ public class ExposicionesDAO {
             Conexion.close(ps);
         }
     }
-        public boolean Eliminar(int id3) {
+
+    public boolean Eliminar(int id3) {
         try {
             ps = con.prepareStatement("UPDATE exposiciones SET estatus=? WHERE idexposicion=?");
             ps.setInt(1, 0);
@@ -64,7 +66,8 @@ public class ExposicionesDAO {
             Conexion.close(ps);
         }
     }
-            public Exposiciones leer(int id) {
+
+    public Exposiciones leer(int id) {
 
         try {
             Exposiciones = new Exposiciones();
@@ -89,19 +92,20 @@ public class ExposicionesDAO {
         }
 
     }
-            public boolean modificar(Exposiciones objeto ) {
+
+    public boolean modificar(Exposiciones objeto) {
         try {
             ps = con.prepareStatement("UPDATE exposiciones SET nombre=?, fecha_inicio=?, fecha_fin=? WHERE idexposicion=?");
             ps.setString(1, objeto.getNombre());
             ps.setDate(2, objeto.getFecha_inicio());
             ps.setDate(3, objeto.getFecha_fin());
             ps.setInt(4, objeto.getIdExposicion());
-            return ps.executeUpdate()>0;
+            return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-             e.printStackTrace();
+            e.printStackTrace();
             return false;
         } finally {
-             Conexion.close(ps);
+            Conexion.close(ps);
         }
     }
 
@@ -112,13 +116,44 @@ public class ExposicionesDAO {
             ps.setDate(2, objeto.getFecha_inicio());
             ps.setDate(3, objeto.getFecha_fin());
             ps.setInt(4, 1);
-ps.execute();
+            ps.execute();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         } finally {
             Conexion.close(ps);
-        }    }
+        }
     }
 
+    public int mostrarID(String option) {
+        try {
+            ps = con.prepareStatement("SELECT * FROM exposiciones WHERE nombre=?");
+            ps.setString(1, option);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("idExposicion");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(ps);
+        }
+        return 0;
+    }
+
+    public boolean agregarObjeto(int idExpo, int idobradearte) {
+       try {
+            ps = con.prepareStatement("INSERT INTO exposicionobjeto (idexposicion, idobradearte) VALUES(?,?)");
+            ps.setInt(1, idExpo);
+            ps.setInt(2, idobradearte);
+            return ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Conexion.close(ps);
+        }
+    }
+}

@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="index.css">
         <title>Registrar Cuenta</title>
     </head>
-    <body>
+    <body align="center">
         <h1>Registrar Cuenta</h1>
         <form action="<%= request.getContextPath()%>/Registrar" method="POST">
         <label>Nombre: </label>

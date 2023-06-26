@@ -15,6 +15,7 @@ import Modelos.objeto_de_arte;
 import Modelos.otros;
 import Modelos.pintura;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
