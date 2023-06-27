@@ -40,7 +40,7 @@ String msg = null;
         ExposicionesDAO access = new ExposicionesDAO();
  
          boolean registrado = access.Registrar(objeto);
-        if (!registrado) {
+        if (registrado) {
             msg = "<script>alert('Registrado Correctamente')</script>";
 
         } else {

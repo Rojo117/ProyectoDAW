@@ -44,7 +44,7 @@ String msg = null;
 
         } else {
             boolean registrado = access.Registrar(objeto);
-            if (!registrado) {
+            if (registrado) {
                 msg = "<script>alert('Registrado Correctamente')</script>";
 
             } else {
